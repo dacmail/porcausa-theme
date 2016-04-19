@@ -46,6 +46,14 @@
 	// Widgets zones definition
 	function ungrynerd_widgets_init() {
 		register_sidebar(array(
+			'id' => 'home-blocks',
+		    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		    'after_widget' => '</div>',
+		    'before_title' => '<h2 class="title">',
+		 	'after_title' => '</h2>',
+		 	'name' => esc_html__('Bloques Home', 'ungrynerd')
+		));
+		register_sidebar(array(
 			'id' => 'sidebar-1',
 		    'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		    'after_widget' => '</div>',
@@ -53,6 +61,7 @@
 		 	'after_title' => '</h2>',
 		 	'name' => esc_html__('Barra Lateral', 'ungrynerd')
 		));
+
 	}
 	add_action('widgets_init', 'ungrynerd_widgets_init');	
 ?>

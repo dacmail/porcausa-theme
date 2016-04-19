@@ -1,6 +1,6 @@
 <?php
 	//Change for activate development mode (using JS and CSS in assets folder)
-	define('WP_DEVELOPMENT_MODE', false);
+	define('WP_DEVELOPMENT_MODE', true);
 
 
 	//Enqueue scripts and styles
@@ -76,6 +76,12 @@
 		}
 	}
 	add_action('wp_enqueue_scripts', 'ungrynerd_scripts');
+
+	function ungrynerd_admin_scripts() {
+		wp_enqueue_script('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js', array('jquery'));
+		wp_enqueue_style('select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css');
+	}
+	add_action('admin_enqueue_scripts', 'ungrynerd_admin_scripts');
 
 	//Remove emojis support
 	remove_action('wp_head', 'print_emoji_detection_script', 7);
