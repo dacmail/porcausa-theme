@@ -12,7 +12,9 @@
 		// Soporte para miniaturas y definición de tamaños
 		add_theme_support('post-thumbnails');
 		if ( function_exists('add_image_size')) {
-			add_image_size('featured', 800, 400, true);
+			add_image_size('col-md-12', 1260, 1260, false);
+			add_image_size('col-md-8', 620, 620, false);
+			add_image_size('col-md-4', 300, 300, false);
 		}
 
 		// Definición menús

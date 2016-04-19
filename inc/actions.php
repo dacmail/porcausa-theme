@@ -56,7 +56,7 @@
 					'1.0.0', 
 					true);
 			}
-
+			wp_enqueue_script('isotope', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js', array('jquery'));
 			wp_enqueue_script(
 				'html5shiv', 
 				'//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', 

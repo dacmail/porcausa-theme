@@ -1,6 +1,12 @@
 (function($) {
 	$(document).ready(function() {
-		//JS
+		$('.home-blocks-container').isotope({
+		  itemSelector: '.home-block-wrap',
+		  layoutMode: 'fitRows',
+		  masonry: {
+		    columnWidth: '.home-block-wrap'
+		  }
+		});
 	});
 	$(window).load(function() {
 		//JS

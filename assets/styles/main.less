@@ -2,3 +2,137 @@
 @import (inline) "font-awesome.css";
 @import "wp_defaults.less";
 
+/*
+*  VARIABLES
+*/
+@main-color: #EC266A;
+@text-color-dark: #333333;
+@text-color-light: #7F7F7F;
+@main-bg: #F1F1F1;
+@main-font: "Helvetica", "Helvetica Neue", "Arial", sans-serif;
+
+/*
+*  COMMONS
+*/
+body {
+	font-family: @main-font;
+	background-color:@main-bg;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*
+*  HEADER
+*/
+.header {
+	background-color:#fff;
+	.container {
+		position: relative;
+	}
+	.navbar-brand {
+		height: auto;
+	}
+	.navbar-nav {
+		position: absolute;
+	    right: 0px;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    z-index: 9999;
+		.menu-item {
+			font-size: 17px;
+			font-weight: bold;
+			text-transform: lowercase;
+			position: relative;
+			list-style: none;
+			a {
+				color:@main-color;
+			}
+			.sub-menu {
+				display: none;
+				z-index: 99999;
+				position: absolute;
+				background:#fff;
+				margin:0px;
+				padding: 0px;
+				width: 300px;
+				.menu-item {
+					a {
+						padding:5px 15px;
+						display: block;
+					}
+				}
+			}
+			&:hover {
+				background-color: #fff;
+				.sub-menu {
+					display: block;
+
+				}
+				a {
+					background-color:#fff;
+				}
+			}
+		}
+	}
+}
+
+/*
+*  HOME BLOCKS
+*/
+.home-block {
+	margin-bottom: 40px;
+	background-color:#fff;
+	padding-bottom: 30px;
+	.post-header {
+		position: relative;
+		.wp-post-image {
+			width: 100%;
+			display: block;
+		}
+		.post-title {
+			position: absolute;
+			background-color:#fff;
+			font-size: 50px;
+			font-weight: bold;
+			line-height: 1;
+			bottom: 0px;
+			left: 0px;
+			width: 90%;
+			margin-bottom:0px;
+			padding:25px 25px 25px 40px;
+			color: @text-color-dark;
+			a {
+				color: @text-color-dark;
+			}
+		}
+	}
+	.post-author {
+		font-size: 17px;
+		color:@text-color-dark;
+		font-weight: lighter;
+		text-transform: lowercase;
+		padding-left: 40px;
+		margin-bottom: 20px;
+		a {
+			color:@text-color-dark;
+			font-weight: bold;
+			text-transform: none;
+		}
+	}
+	.col-md-4 & {
+		.post-header {
+			.post-title {
+				position: relative;
+				width: 100%;
+				bottom: auto;
+				left: auto;
+				font-size: 30px;
+				padding-top:0px;
+				padding-bottom: 0px;
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
