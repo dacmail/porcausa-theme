@@ -19,11 +19,17 @@ $meta_boxes[] = array(
         'priority'   => 'high',
         'show_names' => true, // Show field names on the left
         'fields'     => array(
-            array(
+        	array(
 	                'name' =>  __('Destacar en portada'),
-	                'desc' =>  __('¿Destacar en slideshow de portada?'),
+	                'desc' =>  __('Destacar en portada a todo ancho'),
 	                'id' => $prefix . 'featured',
 	                'type' => 'checkbox',
+	            ),
+            array(
+	                'name' =>  __('Enlaces'),
+	                'desc' =>  __('Enlaces: a la izquierda el texto y a la derecha la URL del enlace.'),
+	                'id' => $prefix . 'links',
+	                'type' => 'key_value',
 	            )
         ),
     );
