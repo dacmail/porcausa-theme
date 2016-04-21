@@ -2,6 +2,12 @@
 	//Change for activate development mode (using JS and CSS in assets folder)
 	define('WP_DEVELOPMENT_MODE', true);
 
+	add_action('init', 'ungrynerd_redirect');
+	function ungrynerd_redirect() {
+		if (!is_user_logged_in() && defined('WP_DEVELOPMENT_MODE') && WP_DEVELOPMENT_MODE) {
+			wp_redirect('http://porcausa.org');
+		}
+	}
 
 	//Enqueue scripts and styles
 	function ungrynerd_scripts() {

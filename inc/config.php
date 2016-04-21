@@ -57,6 +57,14 @@
 		 	'name' => esc_html__('Bloques Home', 'ungrynerd')
 		));
 		register_sidebar(array(
+			'id' => 'home-blocks-bottom',
+		    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		    'after_widget' => '</div>',
+		    'before_title' => '<h2 class="title">',
+		 	'after_title' => '</h2>',
+		 	'name' => esc_html__('Bloques Home Inferiores', 'ungrynerd')
+		));
+		register_sidebar(array(
 			'id' => 'sidebar-1',
 		    'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		    'after_widget' => '</div>',
