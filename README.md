@@ -1,4 +1,4 @@
-# wp-starter
+# porcausa-theme
 
 To install follow the instructions:
 
