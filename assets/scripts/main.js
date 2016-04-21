@@ -18,6 +18,19 @@
                 $('#header').removeClass('fixed');
             }
         });
+
+        $('#tabs a').on('click', function(e) {
+	        e.preventDefault();
+	        $(this).tab('show');
+	    });
+
+		$('.team-carousel').owlCarousel({
+			items: 6,
+			loop: true,
+			dots: false,
+			nav: true,
+			navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
+		});
 	});
 	$(window).load(function() {
 		$(".home-blocks-container").isotope('layout');

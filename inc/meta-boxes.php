@@ -13,8 +13,8 @@ $meta_boxes = array();
 
 $meta_boxes[] = array(
         'id'         => 'general_options',
-        'title'      =>  __('Options'),
-        'pages'      => array( 'page', 'post' ), // Post type
+        'title'      =>  __('Opciones de articulo'),
+        'pages'      => array( 'article', 'post' ), // Post type
         'context'    => 'normal',
         'priority'   => 'high',
         'show_names' => true, // Show field names on the left
@@ -31,6 +31,31 @@ $meta_boxes[] = array(
 	                'id' => $prefix . 'links',
 	                'type' => 'key_value',
 	            )
+        ),
+    );
+$meta_boxes[] = array(
+        'id'         => 'person_options',
+        'title'      =>  __('Datos persona'),
+        'pages'      => array( 'person'), // Post type
+        'context'    => 'normal',
+        'priority'   => 'high',
+        'show_names' => true, // Show field names on the left
+        'fields'     => array(
+        	array(
+	                'name' =>  __('Puesto'),
+	                'id' => $prefix . 'position',
+	                'type' => 'text',
+	            ),
+        	array(
+	                'name' =>  __('Bio'),
+	                'id' => $prefix . 'bio',
+	                'type' => 'wysiwyg',
+	            ),
+        	array(
+	                'name' =>  __('Twitter'),
+	                'id' => $prefix . 'twitter',
+	                'type' => 'text',
+	            ),
         ),
     );
 

@@ -1,5 +1,6 @@
 @import (inline) "bootstrap.css";
 @import (inline) "font-awesome.css";
+@import (inline) "owl.carousel.min.css";
 @import "wp_defaults.less";
 
 /*
@@ -9,6 +10,7 @@
 @text-color-dark: #333333;
 @text-color-light: #7F7F7F;
 @main-bg: #F1F1F1;
+@light-bg: #E5E5E5;
 @main-font: "Helvetica", "Helvetica Neue", "Arial", sans-serif;
 @text-font: "Georgia", serif;
 .text-style {
@@ -297,6 +299,80 @@ img {
 			li {
 				width: 33%;
 				float: left;
+			}
+		}
+	}
+}
+
+/*
+*  TABS
+*/
+#tabs {
+	li {
+		width: 33.3334%;
+		text-align: center;
+		background:@light-bg;
+		&.active {
+			background:#fff;
+			a {
+				color:@text-color-dark;
+			}
+		}
+		a {
+			margin-right: 0px;
+			border:0px;
+			color:#B2B2B2;
+			font-weight: bold;
+			font-size: 25px;
+		}
+	}
+}
+.tab-wrapper {
+	background-color:#fff;
+	text-align: center;
+	.title {
+		font-family: @text-font;
+		font-size: 25px;
+		font-weight: normal;
+		margin:30px 0px;
+		color:@text-color-dark;
+	}
+	.team-carousel {
+		margin:0px;
+		padding:0px;
+		list-style:none;
+		text-align: center;
+		.team-item {
+			padding:15px;
+			.wp-post-image {
+				border-radius: 50%;
+				width:130px;
+				height: 130px;
+				margin:0px auto 15px auto;
+			}
+			.name {
+				font-family: @main-font;
+				font-size: 15px;
+				color:@text-color-dark;
+				font-weight: normal;
+			}
+		}
+		.owl-nav {
+			position: absolute;
+			top:50%;
+			width: 100%;
+			left: 0px;
+			font-size: 40px;
+			color:#CBCBCB;
+			.owl-prev {
+				position: absolute;
+				left: -30px;
+				top: -45px;
+			}
+			.owl-next {
+				position: absolute;
+				right: -30px;
+				top: -45px;
 			}
 		}
 	}
