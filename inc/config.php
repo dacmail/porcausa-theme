@@ -23,7 +23,7 @@
 			register_nav_menus(
 				array(
 				  'main' => esc_html__('Menu principal', 'ungrynerd'),
-				  'secondary' => 'Menu secundario'
+				  'footer' => esc_html__('Menu footer', 'ungrynerd')
 				)
 			);
 		}
