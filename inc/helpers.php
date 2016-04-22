@@ -18,4 +18,18 @@
 	     </article>
 	<?php
 	}
+
+	function ungrynerd_get_attachments($post_id=null, $limit=3) {
+		$args = array(
+		    'post_type' => 'attachment',
+		    'numberposts' => null,
+		    'posts_per_page' => $limit,
+		    'post_mime_type' => 'application/pdf,application/msword,application/x-compressed,application/zip'
+		); 
+		if (isset($post_id)) {
+			$args['post_parent'] = $post_id;
+		}
+		$attachments = get_posts($args);
+		return $attachments;
+	}
 ?>

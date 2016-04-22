@@ -6,15 +6,18 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<?php $featured = new WP_Query(array('meta_key' => '_ungrynerd_featured', 'meta_value' => 1, 'post_type'=>'post', 'posts_per_page' => 1)); ?>
-	<header class="navbar header <?php echo $featured->have_posts() ? 'over' : ''; ?>" id="header">
+	<?php if (is_home()): ?>
+		<?php $featured = new WP_Query(array('meta_key' => '_ungrynerd_featured', 'meta_value' => 1, 'post_type'=>'post', 'posts_per_page' => 1)); ?>
+	<?php endif ?>
+	
+	<header class="navbar header <?php echo (isset($featured) && $featured->have_posts()) ? 'over' : ''; ?>" id="header">
 		<div class="container">
 			<div class="navbar-header">
 				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-menu">
 					<span class="sr-only"><?php _e('Toggle navigation', 'ungrynerd'); ?></span>
 					<?php _e('Menu', 'ungrynerd'); ?>
 				</button>
-				<a href="<?php echo esc_url(home_url('/')); ?>" class="logo navbar-brand normal"><img src="<?php echo get_template_directory_uri(); ?>/images/logo<?php echo $featured->have_posts() ? '-white' : ''; ?>.png" alt="<?php bloginfo('name'); ?>" /></a>
+				<a href="<?php echo esc_url(home_url('/')); ?>" class="logo navbar-brand normal"><img src="<?php echo get_template_directory_uri(); ?>/images/logo<?php echo isset($featured) && $featured->have_posts() ? '-white' : ''; ?>.png" alt="<?php bloginfo('name'); ?>" /></a>
 				<a href="<?php echo esc_url(home_url('/')); ?>" class="logo navbar-brand fixed"><img src="<?php echo get_template_directory_uri(); ?>/images/logo-mini.png" alt="<?php bloginfo('name'); ?>" /></a>
 			</div>
 			<?php wp_nav_menu(array('container' => 'nav',
@@ -27,6 +30,7 @@
 		</div> <!--- /.container -->
 	</header>
 	
+	<?php if (isset($featured)): ?>
 	<?php while ($featured->have_posts()) : $featured->the_post(); ?>
 		<div class="container-fluid">
 			<div class="row">
@@ -60,3 +64,4 @@
 			</div>
 		</div>
 	<?php endwhile; ?>
+	<?php endif ?>

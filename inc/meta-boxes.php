@@ -30,7 +30,17 @@ $meta_boxes[] = array(
 	                'desc' =>  __('Enlaces: a la izquierda el texto y a la derecha la URL del enlace.'),
 	                'id' => $prefix . 'links',
 	                'type' => 'key_value',
-	            )
+	            ),
+            array(
+	                'name' =>  __('Introducción'),
+	                'id' => $prefix . 'intro',
+	                'type' => 'wysiwyg',
+	            ),
+            array(
+	                'name' =>  __('Despiece'),
+	                'id' => $prefix . 'summary',
+	                'type' => 'wysiwyg',
+	            ),
         ),
     );
 $meta_boxes[] = array(

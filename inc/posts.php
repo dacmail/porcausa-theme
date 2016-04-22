@@ -28,13 +28,13 @@ function ugnrynerd_article_post_type()  {
     'exclude_from_search' => true,
     'menu_position' => 5,
     'rewrite' => array( 'slug' => 'articulo' ),
-    'taxonomies' => array('project'),
+    'taxonomies' => array('project', 'epigraph'),
     'supports' => array('title','thumbnail')
   );
   register_post_type('article',$args);
 }
 
-function ungrynerd_project_tax() {
+function ungrynerd_article_taxs() {
     register_taxonomy("project",
     array("article"),
     array(
@@ -45,9 +45,19 @@ function ungrynerd_project_tax() {
         'show_in_nav_menus' => true,
         )
     );
+    register_taxonomy("epigraph",
+    array("article"),
+    array(
+        "hierarchical" => true,
+        "label" => __( "Epigrafes", 'framework'),
+        "singular_label" => __( "Epigrafe", 'framework'),
+        "rewrite" => array( 'slug' => 'epigrafe', 'hierarchical' => true),
+        'show_in_nav_menus' => true,
+        )
+    );
 }
 
-add_action( 'init', 'ungrynerd_project_tax', 0);
+add_action( 'init', 'ungrynerd_article_taxs', 0);
 
 
 
