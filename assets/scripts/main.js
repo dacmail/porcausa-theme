@@ -24,6 +24,10 @@
 	        $(this).tab('show');
 	    });
 
+        $('.change-lights').on('click', function(event) {
+        	event.preventDefault();
+        	$('body').toggleClass('lights-off');
+        });
 		$('.team-carousel').owlCarousel({
 			items: 6,
 			loop: true,

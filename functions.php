@@ -12,7 +12,7 @@ ini_set('max_execution_time', 300);
 	include get_template_directory() . '/inc/helpers.php';
 
 	// Modo mantenimiento para no logueados
-	// add_action('get_header','ungrynerd_maintenace');
+	add_action('get_header','ungrynerd_maintenace');
 	function ungrynerd_maintenace() {
 		if ( !is_user_logged_in()) { wp_die('<h2>Modo mantenimiento, vuelve más tarde.</h2>'); }
 	}

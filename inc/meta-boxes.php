@@ -43,7 +43,8 @@ $meta_boxes[] = array(
 	            ),
         ),
     );
-$meta_boxes[] = array(
+
+	$meta_boxes[] = array(
         'id'         => 'person_options',
         'title'      =>  __('Datos persona'),
         'pages'      => array( 'person'), // Post type
@@ -68,7 +69,36 @@ $meta_boxes[] = array(
 	            ),
         ),
     );
-
+	$meta_boxes[] = array(
+        'id'         => 'general_options_video',
+        'title'      =>  __('Opciones de Video'),
+        'pages'      => array( 'article', 'post' ), // Post type
+        'context'    => 'normal',
+        'priority'   => 'high',
+        'show_names' => true, // Show field names on the left
+        'fields'     => array(
+        	array(
+	                'name' =>  __('URL del video'),
+	                'id' => $prefix . 'video',
+	                'type' => 'oembed',
+	            ),
+        ),
+    );
+	$meta_boxes[] = array(
+        'id'         => 'general_options_gallery',
+        'title'      =>  __('Opciones de Galería'),
+        'pages'      => array( 'article', 'post' ), // Post type
+        'context'    => 'normal',
+        'priority'   => 'high',
+        'show_names' => true, // Show field names on the left
+        'fields'     => array(
+        	array(
+	                'name' =>  __('Fotografías'),
+	                'id' => $prefix . 'photos',
+	                'type' => 'image_advanced',
+	            ),
+        ),
+    );
 function ungrynerd_register_meta_boxes()
 {
 	if ( !class_exists( 'RW_Meta_Box' ) )

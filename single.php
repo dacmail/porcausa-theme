@@ -1,5 +1,3 @@
 <?php get_header() ?>
-<div class="container">
-	<?php get_template_part( 'loop', 'single' ); ?>
-</div>
+	<?php get_template_part( 'loop', get_post_format() ); ?>
 <?php get_footer() ?>

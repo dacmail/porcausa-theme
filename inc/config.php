@@ -9,6 +9,9 @@
 		//Add title tag support
 		add_theme_support('title-tag');
 
+		//posts formats support
+		add_theme_support( 'post-formats', array( 'video', 'gallery' ) );
+
 		// Soporte para miniaturas y definición de tamaños
 		add_theme_support('post-thumbnails');
 		if ( function_exists('add_image_size')) {
@@ -34,7 +37,7 @@
 			'comment-form',
 			'comment-list',
 			'gallery',
-			'caption',
+			'caption'
 		));
 
 	}

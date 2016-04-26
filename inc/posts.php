@@ -28,8 +28,8 @@ function ugnrynerd_article_post_type()  {
     'exclude_from_search' => true,
     'menu_position' => 5,
     'rewrite' => array( 'slug' => 'articulo' ),
-    'taxonomies' => array('project', 'epigraph'),
-    'supports' => array('title','thumbnail')
+    'taxonomies' => array('project', 'epigraph', 'tags'),
+    'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'post-formats')
   );
   register_post_type('article',$args);
 }
