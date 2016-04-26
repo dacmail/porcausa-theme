@@ -28,8 +28,30 @@
         	event.preventDefault();
         	$('body').toggleClass('lights-off');
         });
+
+        $('.show-thumbs').on('click', function(event) {
+        	event.preventDefault();
+        	$('.owl-thumbs').toggleClass('hide');
+        });
+
 		$('.team-carousel').owlCarousel({
 			items: 6,
+			loop: true,
+			dots: false,
+			nav: true,
+			navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
+		});
+		$('.post-gallery').owlCarousel({
+			items: 1,
+			loop: true,
+			dots: false,
+			nav: true,
+   	 		autoHeight:false,
+			navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
+		});
+		$('.owl-thumbs').owlCarousel({
+			items: 2,
+			center: true,
 			loop: true,
 			dots: false,
 			nav: true,
