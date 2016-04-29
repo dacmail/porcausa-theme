@@ -6,7 +6,7 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<?php if (is_home()): ?>
+	<?php if (is_front_page()): ?>
 		<?php $featured = new WP_Query(array('meta_key' => '_ungrynerd_featured', 'meta_value' => 1, 'post_type'=>'post', 'posts_per_page' => 1)); ?>
 	<?php endif ?>
 	
