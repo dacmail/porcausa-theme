@@ -216,10 +216,37 @@ img {
 		}
 	}
 }
-
 /*
 *  HOME BLOCKS
 */
+.donate-float {
+	position: absolute;
+    top: 50%;
+    background-color: #EC266A;
+    color: #fff;
+    z-index: 999;
+    font-size: 30px;
+    transform: rotate(-90deg);
+    line-height: 30px;
+    padding:5px 10px;
+    width: 150px;
+    left: -55px;
+	span {
+		font-weight: bold;
+		position: relative;
+		top:-2px;
+	}
+	i {
+		transform: rotate(90deg);
+		display: inline-block;
+		position: relative;
+		top:1px;
+	}
+	&:hover {
+		opacity: 0.9;
+		color:#fff;
+	}
+}
 .home-block {
 	margin-bottom: 40px;
 	background-color:#fff;
