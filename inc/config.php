@@ -53,8 +53,8 @@
 	function ungrynerd_widgets_init() {
 		register_sidebar(array(
 			'id' => 'home-blocks',
-		    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		    'after_widget' => '</div>',
+		    'before_widget' => '<div id="%1$s" class="col-md-4 home-block-wrap widget %2$s"><div class="widget-wrapper">',
+		    'after_widget' => '</div></div>',
 		    'before_title' => '<h2 class="title">',
 		 	'after_title' => '</h2>',
 		 	'name' => esc_html__('Bloques Home', 'ungrynerd')

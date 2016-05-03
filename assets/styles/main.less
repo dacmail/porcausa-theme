@@ -243,7 +243,7 @@ img {
 		top:1px;
 	}
 	&:hover {
-		opacity: 0.9;
+		opacity: 0.9g;
 		color:#fff;
 	}
 }
@@ -378,6 +378,48 @@ img {
 				width: 33%;
 				float: left;
 			}
+		}
+	}
+}
+/* WIDGETS HOME */
+.home-block-wrap {
+	&.widget {
+		margin-bottom: 40px;
+		.widget-wrapper {
+			background-color: #fff;
+			padding:20px;
+			.title {
+				margin-top: 0px;
+				font-weight: bold;
+				font-size: 25px;
+			}
+			.form-control {
+				border-radius: 0px;
+				border: 1px solid @main-color;
+				font-size: 17px;
+				font-weight: lighter;
+				color:@main-color;
+				height: 40px;
+				line-height: 40px;
+				margin-bottom: 15px;
+				box-shadow: none;
+			}
+			.btn {
+				float: right;
+				border:2px solid #fff;
+				background-color: @main-color;
+				height: 40px;
+				color:#fff;
+				border-radius: 0px;
+				font-size: 17px;
+			}
+		}
+		&#text-2 {
+			.widget-wrapper {
+				color:#fff;
+			background-color: @main-color;
+			}
+			
 		}
 	}
 }

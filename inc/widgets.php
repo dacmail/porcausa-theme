@@ -1,15 +1,10 @@
 <?php
-/**
- * Example Widget Class
- */
 class widget_post_block extends WP_Widget {
  
-    /** constructor -- name this the same as the class above */
     function widget_post_block() {
         parent::WP_Widget(false, $name = 'Bloque articulo');	
     }
  
-    /** @see WP_Widget::widget -- do not rename this */
     function widget($args, $instance) {	
         extract( $args );
         $type = $instance['type'];
@@ -19,7 +14,6 @@ class widget_post_block extends WP_Widget {
         <?php
     }
  
-    /** @see WP_Widget::update -- do not rename this */
     function update($new_instance, $old_instance) {		
 		$instance = $old_instance;
 		$instance['selected_post'] = strip_tags($new_instance['selected_post']);
@@ -27,7 +21,6 @@ class widget_post_block extends WP_Widget {
         return $instance;
     }
  
-    /** @see WP_Widget::form -- do not rename this */
     function form($instance) {	
         $posts = new WP_Query(array('post_type' => 'post', 'posts_per_page' => -1));
         $type = esc_attr($instance['type']);
