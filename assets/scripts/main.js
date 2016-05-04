@@ -6,6 +6,18 @@
 				columnWidth: '.col-md-4'
 			}
 		});
+
+		if ($('.page-template-donar-particular').length>0) {
+			console.log(fundraising);
+			fundraising.init({
+				tenantId: "1",
+				merchantId: "porcausa",
+				paymentSecret: "7s12mV3mRe",
+				postDonationSuccessPage : "https://porcausa.org/gracias",
+			});
+		}
+		
+
         $(window).bind("scroll", function(){ //when the user is scrolling...
         	if ($(window).scrollTop() >= 100) { //header hide by scroll
                 $('#header').addClass('overflow');

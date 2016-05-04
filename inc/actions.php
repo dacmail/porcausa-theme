@@ -50,7 +50,9 @@
 				wp_enqueue_script(
 					'owl-carousel2',
 					get_template_directory_uri() . '/assets/scripts/owl.carousel.min.js', 
-					array('jquery')
+					array('jquery'),
+					'2.0',
+					true
 				);
 			} else {
 				wp_enqueue_script(
@@ -60,8 +62,35 @@
 					'1.0.0', 
 					true);
 			}
-			wp_enqueue_script('isotope', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js', array('jquery'));
-
+			wp_enqueue_script('isotope', 
+				'https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js', 
+				array('jquery'),
+				'2.0.2',
+				true
+			);
+			if (is_page_template('donar-particular.php')) {
+				$frBaseUrl = "https://fundraising.arivanza.com/";
+				wp_enqueue_script('jquery-md5', 
+					$frBaseUrl . 'fundraising/resources/scripts/web-donation/jquery.md5.js', 
+					array('jquery'),
+					false,
+					true
+				);
+				wp_enqueue_script('jquery-dateformat', 
+					$frBaseUrl . 'fundraising/resources/scripts/web-donation/jquery-dateFormat.min.js', 
+					array('jquery'),
+					false,
+					true
+				);
+				wp_enqueue_script('webfr', 
+					$frBaseUrl . 'fundraising/resources/scripts/web-donation/webfr.js?12122015', 
+					array('jquery'),
+					false,
+					true
+				);
+				wp_add_inline_script( 'webfr', 'var $ = jQuery = jQuery.noConflict(true);', 'before');
+			}
+			
 			wp_enqueue_script(
 				'html5shiv', 
 				'//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', 

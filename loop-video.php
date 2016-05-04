@@ -26,11 +26,7 @@
 						<div class="post-author">
 							<?php echo get_avatar(get_the_author_id(), 51); ?>
 							Por <?php the_author_posts_link() ?> <strong>/ <?php the_time(get_option('date_format')); ?></strong></div>
-						<div class="post-share">
-							<a href="#" class="icon fb" target="_blank"><i class="fa fa-facebook"></i></a>
-							<a href="#" class="icon tw" target="_blank"><i class="fa fa-twitter"></i></a>
-							<a href="#" class="icon in" target="_blank"><i class="fa fa-linkedin"></i></a>
-						</div>
+						<?php get_template_part('templates/post-share'); ?>
 					</div>
 				</div>
 			</article>
