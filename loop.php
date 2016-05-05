@@ -12,7 +12,7 @@
 			</div>
 		<?php endif ?>
 		<div class="article-wrapper">
-			<h3 class="post-pretitle">Epígrafe del artículo</h3>
+			<h3 class="post-pretitle"><?php the_terms(get_the_ID(),'epigraph'); ?></h3>
 			<h1 class="post-title">
 				<?php the_title(); ?>
 			</h1>

@@ -1,16 +1,19 @@
 <?php get_header() ?>
-<div id="container" class="container">
+<section id="home-blocks" class="container">
 	<div class="row">
-		<div class="col-sm-9">
-			<section id="content" class="clearfix">
-				<?php get_template_part( 'loop', 'single' ); ?>
-			</section>
-			<nav class="pagination">
-				<?php previous_posts_link( __('Anterior', 'ungrynerd')); ?>
-				<?php next_posts_link( __('Siguiente', 'ungrynerd')); ?>
-			</nav>
+		<div class="col-sm-12">
+			<?php the_archive_title( '<h1 class="block-title main">', '</h1>' ); ?>
 		</div>
-		<?php get_sidebar() ?>
+	</div>
+	<div class="row archive-blocks-container">
+		<?php get_template_part('templates/archive-blocks'); ?>
 	</div> <!-- /.row -->
-</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="pagination-wrap">
+				<?php ungrynerd_pagination(); ?>
+			</div>
+		</div>
+	</div>
+</section>
 <?php get_footer() ?>

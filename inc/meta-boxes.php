@@ -43,7 +43,30 @@ $meta_boxes[] = array(
 	            ),
         ),
     );
-
+	$meta_boxes[] = array(
+        'id'         => 'featured_options',
+        'title'      =>  __('Destacar en proyecto'),
+        'pages'      => array( 'article', 'post' ), // Post type
+        'context'    => 'normal',
+        'priority'   => 'high',
+        'show_names' => true, // Show field names on the left
+        'fields'     => array(
+        	array(
+	                'name' =>  __('Destacar en portada de proyecto'),
+	                'id' => $prefix . 'cat_featured',
+	                'type' => 'checkbox',
+	            ),
+        	array(
+	                'name' =>  __('Destacar en:'),
+	                'id' => $prefix . 'post_columns',
+	                'type' => 'select',
+	                'options' => array(
+	                	"col-md-12"  => __('3 columnas', 'ungrynerd'),
+		                "col-md-8"  => __('2 columnas', 'ungrynerd'),
+		                "col-md-4" => __('1 columna', 'ungrynerd'))
+	            ),
+        ),
+    );
 	$meta_boxes[] = array(
         'id'         => 'person_options',
         'title'      =>  __('Datos persona'),

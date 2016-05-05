@@ -149,4 +149,23 @@
 	if (defined('WP_DEVELOPMENT_MODE') && WP_DEVELOPMENT_MODE && !is_admin() ) {
 		add_filter( 'style_loader_tag', 'enqueue_less_styles', 5, 2);
 	}
+
+	function ungrynerd_post_classes($classes) {
+		if(current_theme_supports('post-thumbnails'))
+			if(!has_post_thumbnail())
+				$classes[] = "no-post-thumbnail";
+		
+		return $classes;
+	}	
+	add_filter('post_class', "ungrynerd_post_classes");
+
+	function ungrynerd_add_custom_types( $query ) {
+		if( is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
+			$query->set( 'post_type', array(
+				'post', 'article'
+			));
+			return $query;
+		}
+	}
+	add_filter( 'pre_get_posts', 'ungrynerd_add_custom_types' );
 	

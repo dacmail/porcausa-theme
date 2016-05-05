@@ -6,6 +6,12 @@
 				columnWidth: '.col-md-4'
 			}
 		});
+		$('.archive-blocks-container').isotope({
+			itemSelector: '.home-block-wrap',
+			masonry: {
+				columnWidth: '.col-md-6'
+			}
+		});
 
 		if ($('.page-template-donar-particular').length>0) {
 			console.log(fundraising);
