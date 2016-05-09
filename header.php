@@ -15,7 +15,7 @@
 			<div class="navbar-header">
 				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-menu">
 					<span class="sr-only"><?php _e('Toggle navigation', 'ungrynerd'); ?></span>
-					<?php _e('Menu', 'ungrynerd'); ?>
+					<i class="fa fa-bars"></i>
 				</button>
 				<a href="<?php echo esc_url(home_url('/')); ?>" class="logo navbar-brand normal"><img src="<?php echo get_template_directory_uri(); ?>/images/logo<?php echo isset($featured) && $featured->have_posts() ? '-white' : ''; ?>.png" alt="<?php bloginfo('name'); ?>" /></a>
 				<a href="<?php echo esc_url(home_url('/')); ?>" class="logo navbar-brand fixed"><img src="<?php echo get_template_directory_uri(); ?>/images/logo-mini.png" alt="<?php bloginfo('name'); ?>" /></a>

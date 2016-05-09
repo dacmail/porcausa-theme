@@ -1,20 +1,22 @@
+
 (function($) {
 	$(document).ready(function() {
-		$('.home-blocks-container').isotope({
-			itemSelector: '.home-block-wrap',
-			masonry: {
-				columnWidth: '.col-md-4'
-			}
-		});
-		$('.archive-blocks-container').isotope({
-			itemSelector: '.home-block-wrap',
-			masonry: {
-				columnWidth: '.col-md-6'
-			}
-		});
+		if ($(window).width()>768) {
+			$('.home-blocks-container').isotope({
+				itemSelector: '.home-block-wrap',
+				masonry: {
+					columnWidth: '.col-md-4'
+				}
+			});
+			$('.archive-blocks-container').isotope({
+				itemSelector: '.home-block-wrap',
+				masonry: {
+					columnWidth: '.col-md-6'
+				}
+			});
+		}
 
 		if ($('.page-template-donar-particular').length>0) {
-			console.log(fundraising);
 			fundraising.init({
 				tenantId: "1",
 				merchantId: "porcausa",
@@ -53,8 +55,20 @@
         });
 
 		$('.team-carousel').owlCarousel({
-			items: 6,
-			loop: true,
+			responsive:{
+		        0:{
+		            items:2,
+		            nav:false
+		        },
+		        450:{
+		            items:4,
+		            nav:false
+		        },
+		        769:{
+		            items:6,
+		            nav:true,
+		        }
+		    },
 			dots: false,
 			nav: true,
 			navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
@@ -68,7 +82,17 @@
 			navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>']
 		});
 		$('.owl-thumbs').owlCarousel({
-			items: 2,
+			responsive:{
+		        0:{
+		            items:3,
+		        },
+		        450:{
+		            items:6,
+		        },
+		        769:{
+		            items:8,
+		        }
+		    },
 			center: true,
 			loop: true,
 			dots: false,
@@ -77,11 +101,14 @@
 		});
 	});
 	$(window).load(function() {
-		$(".home-blocks-container").isotope('layout');
+		if ($(window).width()>768)
+			$(".home-blocks-container").isotope('layout');
 	});
 	$(window).on("resize orientationchange",function(){
-		setTimeout(function(){
-			$(".home-blocks-container").isotope('layout')
-		},1500);
+		if ($(window).width()>768) {
+			setTimeout(function(){
+				$(".home-blocks-container").isotope('layout')
+			},1500);
+		}
 	});
 })(jQuery);
