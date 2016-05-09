@@ -2,10 +2,12 @@
 <section id="home-blocks" class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			<h1 class="block-title main"><?php single_term_title(); ?></h1>
-			<div class="term-description">
-				<?php echo term_description(); ?>
-			</div>
+			<header class="project-head">
+				<h1 class="term-title"><?php single_term_title(); ?></h1>
+				<div class="term-description">
+					<?php echo term_description(); ?>
+				</div>
+			</header>
 		</div>
 	</div>
 	<div class="row home-blocks-container">
