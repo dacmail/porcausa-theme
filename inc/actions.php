@@ -168,4 +168,47 @@
 		}
 	}
 	add_filter( 'pre_get_posts', 'ungrynerd_add_custom_types' );
+
+	function ungrynerd_people($atts, $content=null) {
+	    extract( shortcode_atts( array(
+	        'limit' => -1,
+	        'group' => 'equipo',
+	        'columns' => 2
+	        ), $atts ) );
+	    global $post;
+	    $back=$post; //Backup post data ?>
+	    <div class="row row-people">
+		<?php 	
+	    $people = new WP_Query(array('post_type'=>'person',
+									'posts_per_page' => esc_attr($limit),
+									'group' => esc_attr($group),
+									));
+	    while ($people->have_posts()) : $people->the_post();
+	        $position = get_post_meta($post->ID, '_ungrynerd_position', true );
+	        $bio = get_post_meta($post->ID, '_ungrynerd_bio', true );
+	        $twitter = get_post_meta($post->ID, '_ungrynerd_twitter', true ); 
+	        $class = $columns==2 ? 'col-md-6' : 'col-md-12'; ?>
+			<div class="<?php echo $class; ?>">
+				<div class="person">
+					<?php the_post_thumbnail('avatar'); ?>
+					<h2 class="person-name"><?php the_title(); ?></h2>
+					<h3 class="person-position"><?php echo $position ?></h3>
+					<?php echo $bio ?>
+					<?php if (!empty($twitter)): ?>
+						<a class="person-twitter" href="http://twitter.com/<?php echo $twitter ?>" target="_blank">@<?php echo $twitter; ?></a>
+					<?php endif ?>
+					
+				</div>
+			</div>
+			<?php if (($people->current_post+1)%$columns==0 && $people->found_posts>($people->current_post+1)): ?>
+				</div><div class="row row-people">
+			<?php endif ?>
+	        <?php
+	    endwhile;
+	    $post=$back; //restore post object
+	   	?> </div> <?php 
+	    return $return;
+	}
+
+	add_shortcode('people', 'ungrynerd_people');	
 	

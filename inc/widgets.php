@@ -55,3 +55,53 @@ class widget_post_block extends WP_Widget {
 }
 add_action('widgets_init', create_function('', 'return register_widget("widget_post_block");'));
 ?>
+
+
+<?php
+class ungrynerd_widget_attachment extends WP_Widget {
+ 
+    function ungrynerd_widget_attachment() {
+        parent::WP_Widget(false, $name = 'Bloque documentos');    
+    }
+ 
+    function widget($args, $instance) { 
+        extract( $args );
+        $title = apply_filters( 'widget_title', $instance['title'] );
+        echo $args['before_widget'];
+        if ( ! empty( $title ) )
+            echo $args['before_title'] . $title . $args['after_title'];
+        ?>
+            <?php $attachments = ungrynerd_get_attachments(); ?>
+            <?php if (!empty($attachments)) : ?>
+                <ul class="documents-link">
+                <?php foreach ($attachments as $attachment) : ?>
+                    <li><a href="<?php echo $attachment->guid; ?>"><?php echo $attachment->post_title; ?></a> <?php echo $attachment->post_excerpt; ?></li>
+                <?php endforeach; ?>
+                </ul>
+            <?php endif ?>
+        <?php
+        echo $args['after_widget'];
+    }
+    public function form( $instance ) {
+        if ( isset( $instance[ 'title' ] ) ) {
+            $title = $instance[ 'title' ];
+        }
+        else {
+            $title = __( 'New title', 'ungrynerd' );
+        }
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+        </p>
+        <?php 
+    }
+    public function update( $new_instance, $old_instance ) {
+        $instance = array();
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        return $instance;
+    }
+ 
+}
+add_action('widgets_init', create_function('', 'return register_widget("ungrynerd_widget_attachment");'));
+?>
