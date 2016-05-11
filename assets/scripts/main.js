@@ -101,13 +101,16 @@
 		});
 	});
 	$(window).load(function() {
-		if ($(window).width()>768)
+		if ($(window).width()>768) {
 			$(".home-blocks-container").isotope('layout');
+			$(".archive-blocks-container").isotope('layout');
+		}
 	});
 	$(window).on("resize orientationchange",function(){
 		if ($(window).width()>768) {
 			setTimeout(function(){
-				$(".home-blocks-container").isotope('layout')
+				$(".home-blocks-container").isotope('layout');
+				$(".archive-blocks-container").isotope('layout');
 			},1500);
 		}
 	});
