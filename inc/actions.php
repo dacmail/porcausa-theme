@@ -160,14 +160,14 @@
 	add_filter('post_class', "ungrynerd_post_classes");
 
 	function ungrynerd_add_custom_types( $query ) {
-		if( is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
-			$query->set( 'post_type', array(
+		if(!is_admin() && !is_tax() && is_archive() && empty($query->query_vars['suppress_filters'])) {
+			$query->set('post_type', array(
 				'post', 'article'
 			));
 			return $query;
 		}
 	}
-	add_filter( 'pre_get_posts', 'ungrynerd_add_custom_types' );
+	//add_filter( 'pre_get_posts', 'ungrynerd_add_custom_types' );
 
 	function ungrynerd_people($atts, $content=null) {
 	    extract( shortcode_atts( array(

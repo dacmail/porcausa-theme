@@ -112,4 +112,25 @@ function ungrynerd_group_tax() {
 
 add_action( 'init', 'ungrynerd_group_tax', 0);
 
+
+function ungrynerd_columns_head($defaults) {
+    $defaults['project'] = 'Proyecto';
+    return $defaults;
+}
+ 
+// SHOW THE FEATURED IMAGE
+function ungrynerd_columns_content($column_name, $post_ID) {
+    if ($column_name == 'project') {
+        $post_type = 'article';
+        $terms = get_the_terms($post_ID, 'project');
+        if (!empty($terms) ) {
+            foreach ( $terms as $term )
+            $post_terms[] ="<a href='edit.php?post_type={$post_type}&{$taxonomy}={$term->slug}'> " .esc_html(sanitize_term_field('name', $term->name, $term->term_id, $taxonomy, 'edit')) . "</a>";
+            echo join('', $post_terms );
+        }
+         else echo '<i>Sin proyecto. </i>';
+    }
+}
+add_filter('manage_posts_columns', 'ungrynerd_columns_head');
+add_action('manage_posts_custom_column', 'ungrynerd_columns_content', 10, 2);
 ?>

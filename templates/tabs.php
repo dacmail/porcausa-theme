@@ -11,7 +11,7 @@
 			<div role="tabpanel" class="tab-pane active" id="pioneros">
 				<h3 class="title">Pioneros, los primeros en apoyar nuestras causas</h3>
 				<ul class="clearfix team-carousel owl-carousel">
-					<?php $pioneros = new WP_Query(array('post_type' => 'person', 'group' => 'pioneros')); ?>
+					<?php $pioneros = new WP_Query(array('posts_per_page'=> -1, 'post_type' => 'person', 'group' => 'pioneros')); ?>
 					<?php while ( $pioneros->have_posts() ) : $pioneros->the_post(); ?>
 						<li class="team-item">
 							<?php the_post_thumbnail('avatar'); ?>
@@ -23,7 +23,7 @@
 			<div role="tabpanel" class="tab-pane" id="equipo">
 				<h3 class="title">Equipo, los primeros en apoyar nuestras causas</h3>
 				<ul class="clearfix team-carousel owl-carousel">
-					<?php $pioneros = new WP_Query(array('post_type' => 'person', 'group' => 'equipo')); ?>
+					<?php $pioneros = new WP_Query(array('posts_per_page'=> -1, 'post_type' => 'person', 'group' => 'equipo')); ?>
 					<?php while ( $pioneros->have_posts() ) : $pioneros->the_post(); ?>
 						<li class="team-item">
 							<?php the_post_thumbnail('avatar'); ?>
@@ -35,7 +35,7 @@
 			<div role="tabpanel" class="tab-pane" id="patronato">
 				<h3 class="title">Patronato, los primeros en apoyar nuestras causas</h3>
 				<ul class="clearfix team-carousel owl-carousel">
-					<?php $pioneros = new WP_Query(array('post_type' => 'person', 'group' => 'patronato')); ?>
+					<?php $pioneros = new WP_Query(array('posts_per_page'=> -1, 'post_type' => 'person', 'group' => 'patronato')); ?>
 					<?php while ( $pioneros->have_posts() ) : $pioneros->the_post(); ?>
 						<li class="team-item">
 							<?php the_post_thumbnail('avatar'); ?>
