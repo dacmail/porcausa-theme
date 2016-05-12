@@ -177,14 +177,34 @@
 	        'columns' => 2
 	        ), $atts ) );
 	    global $post;
-	    $back=$post; //Backup post data ?>
+	    $back=$post; //Backup post data 
+	    ob_start();
+	    ?>
 	    <div class="row row-people">
-		<?php 	
-	    $people = new WP_Query(array('post_type'=>'person',
-									'posts_per_page' => esc_attr($limit),
-									'group' => esc_attr($group),
-									'project' => esc_attr($project)
-									));
+	    <?php 
+	    	$args = array(
+						'post_type' => 'person',
+						'posts_per_page'=> esc_attr($limit),
+						'tax_query' => array(
+							'relation' => 'AND',
+						),
+					);
+	    	if (!empty($group)) {
+	    		$args['tax_query'][] = array(
+								'taxonomy' => 'group',
+								'field'    => 'slug',
+								'terms'    => esc_attr($group),
+							);
+	    	}
+	    	if (!empty($project)) {
+	    		$args['tax_query'][] = array(
+								'taxonomy' => 'project',
+								'field'    => 'slug',
+								'terms'    => esc_attr($project),
+							);
+	    	}
+	    ?>
+		<?php 	$people = new WP_Query($args);
 	    while ($people->have_posts()) : $people->the_post();
 	        $position = get_post_meta($post->ID, '_ungrynerd_position', true );
 	        $bio = get_post_meta($post->ID, '_ungrynerd_bio', true );
@@ -195,10 +215,13 @@
 					<?php the_post_thumbnail('avatar'); ?>
 					<h2 class="person-name"><?php the_title(); ?></h2>
 					<h3 class="person-position"><?php echo $position ?></h3>
-					<?php echo $bio ?>
-					<?php if (!empty($twitter)): ?>
-						<a class="person-twitter" href="http://twitter.com/<?php echo $twitter ?>" target="_blank">@<?php echo $twitter; ?></a>
-					<?php endif ?>
+					<div class="person-bio">
+						<?php echo $bio ?>
+						<?php if (!empty($twitter)): ?>
+							<p><a class="person-twitter" href="http://twitter.com/<?php echo $twitter ?>" target="_blank">@<?php echo $twitter; ?></a></p>
+						<?php endif ?>
+					</div>
+					
 					
 				</div>
 			</div>
@@ -209,7 +232,7 @@
 	    endwhile;
 	    $post=$back; //restore post object
 	   	?> </div> <?php 
-	    return $return;
+	    return ob_get_clean();
 	}
 
 	add_shortcode('people', 'ungrynerd_people');	
