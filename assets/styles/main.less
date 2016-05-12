@@ -1270,6 +1270,154 @@ td:first-child { background:rgba(200,200,200,.15); text-align:left; }
 	font-size: 20px;
 	text-transform: lowercase;
 	line-height: 20px;
+	font-family: @main-font;
+	&.btn-primary {
+		background-color: @main-color;
+		color:#fff;
+	}
+}
+/*
+*  DONACIONES
+*/
+#donateForm {
+	font-size: 18px;
+	font-family: @main-font;
+	.step {
+		display: none;
+		&.step-1 {
+			display: block;
+		}
+	}
+	h3 {
+		font-size: 25px;
+		color:@text-color-dark;
+		text-transform: lowercase;
+	}
+	label {
+		font-size: 18px;
+		font-family: @main-font;
+		font-weight: normal;
+		text-transform: lowercase;
+		line-height: 21px;
+		width: 100%;
+		position: relative;
+		&.inline {
+			display: inline-block;
+			margin:0px 5px;
+			width: auto;
+			font-size: 16px;
+		}
+	}
+	.frecuencia {
+		label {
+			display: inline-block;
+			width: 20%;
+		}
+	}
+	.cantidad {
+		label {
+			display: inline-block;
+			width: 20%;
+			&#otherAmountSpan {
+				width: 100%;
+				text-align: center;
+				margin-top:30px;
+				display: none;
+			}
+		}
+	}
+	input[type=text], input[type=number], input[type=email] {
+		background-color: @main-bg;
+		border:0px;
+		height: 50px;
+		line-height: 50px;
+		padding:0px 10px;
+		display: block;
+		width: 100%;
+	}
+	#txtAmount {
+		max-width: 250px;
+		display: inline;
+	}
+	#iban {
+		position: absolute;
+    	width: 100%;
+	}
+	#ibanExt {
+		position: relative;
+		background: transparent;
+		padding-left: 35px;
+	}
+	.btn {
+		width: 150px;
+		margin:30px auto;
+		padding:15px 0px;
+		text-align: center;
+		display: block;
+		&#btnDonationSubmit {
+			width: 250px;
+		}
+	}
+	#opcion-pago {
+		margin-bottom: 25px;
+	}
+	.row {
+		margin-bottom: 15px;
+		.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7 {
+			margin-bottom: 15px;
+		}    
+	}
+	.form-select {
+		height: 50px;
+		overflow: hidden;
+		width: 100%;
+		position: relative;
+		&:before {
+			content: "\f107";
+			position: absolute;
+			right: 0px;
+			top:0px;
+			height: 50px;
+			line-height: 50px;
+			width: 30px;
+			font-size: 18px;
+			margin-top:0px;
+			color: #fff;
+			background-color: #CBCBCB;
+			display: inline-block;
+			display: inline-block;
+    		font: normal normal normal 14px FontAwesome;
+		    font-size: inherit;
+		    text-rendering: auto;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+			pointer-events: none;
+			text-align: center;
+    		line-height: 50px;
+		}
+		select {
+			-webkit-appearance: none;
+			background: white\0 !important;
+			display: block;
+			padding: 0px 10px;
+			width: 100%;
+			background-color: @main-bg;
+			border:0px;
+			height: 50px;
+			line-height: 50px;
+			color: @text-color-dark;
+			font-family: @main-font;
+			font-size: 16px;
+			border-radius: 0px;
+			&:focus, &:active {
+				border-color:@main-color;
+			}
+			&:hover {
+				border-color:@main-color;
+			}
+		}
+		
+	}
 }
 /*
 *  Meduaqueries

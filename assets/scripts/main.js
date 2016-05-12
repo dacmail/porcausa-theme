@@ -1,6 +1,12 @@
 
 (function($) {
 	$(document).ready(function() {
+		$('#donateForm .step .btn-next').on('click', function(event) {
+			event.preventDefault();
+			$(this).closest('.step').hide().next('.step').show();
+		});
+
+
 		if (localStorage.getItem('porcausa_donate_close')==1)
 			$('.donate-box').hide();
 
