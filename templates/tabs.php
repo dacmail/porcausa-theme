@@ -11,8 +11,39 @@
 			<div role="tabpanel" class="tab-pane active" id="pioneros">
 				<h3 class="title">Pioneros, los primeros en apoyar nuestras causas</h3>
 				<ul class="clearfix team-carousel owl-carousel">
-					<?php $pioneros = new WP_Query(array('posts_per_page'=> -1, 'post_type' => 'person', 'group' => 'pioneros')); ?>
-					<?php while ( $pioneros->have_posts() ) : $pioneros->the_post(); ?>
+					<?php if (is_tax('project')): 
+						$args = array(
+							'post_type' => 'person',
+							'posts_per_page'=> -1,
+							'tax_query' => array(
+								'relation' => 'AND',
+								array(
+									'taxonomy' => 'group',
+									'field'    => 'slug',
+									'terms'    => 'pioneros',
+								),
+								array(
+									'taxonomy' => 'project',
+									'field'    => 'term_id',
+									'terms'    => get_queried_object()->term_id,
+								),
+							),
+						);
+					else :
+						$args = array(
+							'post_type' => 'person',
+							'posts_per_page'=> -1,
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'group',
+									'field'    => 'slug',
+									'terms'    => 'pioneros',
+								)
+							),
+						);
+					endif ?>
+					<?php $people = new WP_Query($args); ?>
+					<?php while ( $people->have_posts() ) : $people->the_post(); ?>
 						<li class="team-item">
 							<?php the_post_thumbnail('avatar'); ?>
 							<h3 class="name"><?php the_title(); ?></h3>
@@ -23,8 +54,39 @@
 			<div role="tabpanel" class="tab-pane" id="equipo">
 				<h3 class="title">Equipo, los primeros en apoyar nuestras causas</h3>
 				<ul class="clearfix team-carousel owl-carousel">
-					<?php $pioneros = new WP_Query(array('posts_per_page'=> -1, 'post_type' => 'person', 'group' => 'equipo')); ?>
-					<?php while ( $pioneros->have_posts() ) : $pioneros->the_post(); ?>
+					<?php if (is_tax('project')): 
+						$args = array(
+							'post_type' => 'person',
+							'posts_per_page'=> -1,
+							'tax_query' => array(
+								'relation' => 'AND',
+								array(
+									'taxonomy' => 'group',
+									'field'    => 'slug',
+									'terms'    => 'equipo',
+								),
+								array(
+									'taxonomy' => 'project',
+									'field'    => 'term_id',
+									'terms'    => get_queried_object()->term_id,
+								),
+							),
+						);
+					else :
+						$args = array(
+							'post_type' => 'person',
+							'posts_per_page'=> -1,
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'group',
+									'field'    => 'slug',
+									'terms'    => 'equipo',
+								)
+							),
+						);
+					endif ?>
+					<?php $people = new WP_Query($args); ?>
+					<?php while ( $people->have_posts() ) : $people->the_post(); ?>
 						<li class="team-item">
 							<?php the_post_thumbnail('avatar'); ?>
 							<h3 class="name"><?php the_title(); ?></h3>
@@ -35,8 +97,39 @@
 			<div role="tabpanel" class="tab-pane" id="patronato">
 				<h3 class="title">Patronato, los primeros en apoyar nuestras causas</h3>
 				<ul class="clearfix team-carousel owl-carousel">
-					<?php $pioneros = new WP_Query(array('posts_per_page'=> -1, 'post_type' => 'person', 'group' => 'patronato')); ?>
-					<?php while ( $pioneros->have_posts() ) : $pioneros->the_post(); ?>
+					<?php if (is_tax('project')): 
+						$args = array(
+							'post_type' => 'person',
+							'posts_per_page'=> -1,
+							'tax_query' => array(
+								'relation' => 'AND',
+								array(
+									'taxonomy' => 'group',
+									'field'    => 'slug',
+									'terms'    => 'patronato',
+								),
+								array(
+									'taxonomy' => 'project',
+									'field'    => 'term_id',
+									'terms'    => get_queried_object()->term_id,
+								),
+							),
+						);
+					else :
+						$args = array(
+							'post_type' => 'person',
+							'posts_per_page'=> -1,
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'group',
+									'field'    => 'slug',
+									'terms'    => 'patronato',
+								)
+							),
+						);
+					endif ?>
+					<?php $people = new WP_Query($args); ?>
+					<?php while ( $people->have_posts() ) : $people->the_post(); ?>
 						<li class="team-item">
 							<?php the_post_thumbnail('avatar'); ?>
 							<h3 class="name"><?php the_title(); ?></h3>

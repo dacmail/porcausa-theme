@@ -173,6 +173,7 @@
 	    extract( shortcode_atts( array(
 	        'limit' => -1,
 	        'group' => 'equipo',
+	        'project' => '',
 	        'columns' => 2
 	        ), $atts ) );
 	    global $post;
@@ -182,6 +183,7 @@
 	    $people = new WP_Query(array('post_type'=>'person',
 									'posts_per_page' => esc_attr($limit),
 									'group' => esc_attr($group),
+									'project' => esc_attr($project)
 									));
 	    while ($people->have_posts()) : $people->the_post();
 	        $position = get_post_meta($post->ID, '_ungrynerd_position', true );

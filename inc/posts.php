@@ -37,7 +37,7 @@ function ugnrynerd_article_post_type()  {
 
 function ungrynerd_article_taxs() {
     register_taxonomy("project",
-    array("article"),
+    array("article", "person"),
     array(
         "hierarchical" => true,
         "label" => __( "Proyectos", 'framework'),
@@ -91,7 +91,7 @@ function ugnrynerd_person_post_type()  {
     'exclude_from_search' => true,
     'menu_position' => 5,
     'rewrite' => array( 'slug' => 'persona' ),
-    'taxonomies' => array('group'),
+    'taxonomies' => array('group', 'project'),
     'supports' => array('title','thumbnail')
   );
   register_post_type('person',$args);
@@ -121,11 +121,11 @@ function ungrynerd_columns_head($defaults) {
 // SHOW THE FEATURED IMAGE
 function ungrynerd_columns_content($column_name, $post_ID) {
     if ($column_name == 'project') {
-        $post_type = 'article';
+        $post_type = get_post_type( $post_ID);
         $terms = get_the_terms($post_ID, 'project');
         if (!empty($terms) ) {
             foreach ( $terms as $term )
-            $post_terms[] ="<a href='edit.php?post_type={$post_type}&{$taxonomy}={$term->slug}'> " .esc_html(sanitize_term_field('name', $term->name, $term->term_id, $taxonomy, 'edit')) . "</a>";
+            $post_terms[] ="<a href='edit.php?post_type={$post_type}&{$column_name}={$term->slug}'> " .esc_html(sanitize_term_field('name', $term->name, $term->term_id, $taxonomy, 'edit')) . "</a> <br>";
             echo join('', $post_terms );
         }
          else echo '<i>Sin proyecto. </i>';
@@ -133,4 +133,29 @@ function ungrynerd_columns_content($column_name, $post_ID) {
 }
 add_filter('manage_posts_columns', 'ungrynerd_columns_head');
 add_action('manage_posts_custom_column', 'ungrynerd_columns_content', 10, 2);
+
+
+function ungrynerd_columns_person_head($defaults) {
+    $defaults['group'] = 'Grupo';
+    return $defaults;
+}
+ 
+// SHOW THE FEATURED IMAGE
+function ungrynerd_columns_person_content($column_name, $post_ID) {
+    if ($column_name == 'group') {
+        $post_type = 'person';
+        $terms = get_the_terms($post_ID, 'group');
+        if (!empty($terms) ) {
+            foreach ( $terms as $term )
+            $post_terms[] ="<a href='edit.php?post_type={$post_type}&{$column_name}={$term->slug}'> " .esc_html(sanitize_term_field('name', $term->name, $term->term_id, $taxonomy, 'edit')) . "</a> <br>";
+            echo join('', $post_terms );
+        }
+         else echo '<i>Sin proyecto. </i>';
+    }
+}
+add_filter('manage_person_posts_columns', 'ungrynerd_columns_person_head', 10);
+add_action('manage_person_posts_custom_column', 'ungrynerd_columns_person_content', 10, 2);
+
+
+
 ?>
