@@ -1,6 +1,14 @@
 
 (function($) {
 	$(document).ready(function() {
+		if (localStorage.getItem('porcausa_donate_close')==1)
+			$('.donate-box').hide();
+
+		$('.donate-box .close-btn').on('click', function(event) {
+			event.preventDefault();
+			$('.donate-box').hide();
+			localStorage.setItem('porcausa_donate_close', 1);
+		});
 		if ($(window).width()>768) {
 			$('.home-blocks-container').isotope({
 				itemSelector: '.home-block-wrap',

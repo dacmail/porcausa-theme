@@ -28,6 +28,13 @@
 			</div>
 		</div>
 	</footer>
+
+	<div class="donate-box">
+		<i class="fa fa-heart"></i>
+		ayudanos a crear un buen periodismo
+		<a class="btn btn-block" href="#">Donar</a>
+		<a class="close-btn" href="#">x</a>
+	</div>
 	<?php wp_footer(); ?>
 	
 	
