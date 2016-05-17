@@ -28,7 +28,7 @@ function ugnrynerd_article_post_type()  {
     'exclude_from_search' => true,
     'menu_position' => 5,
     'rewrite' => array( 'slug' => 'articulo' ),
-    'taxonomies' => array('project', 'epigraph', 'tags'),
+    'taxonomies' => array('project', 'epigraph', 'post_tag'),
     'has_archive' => true,
     'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'post-formats')
   );
