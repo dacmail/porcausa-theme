@@ -7,6 +7,7 @@ class widget_post_block extends WP_Widget {
  
     function widget($args, $instance) {	
         extract( $args );
+        $title = apply_filters( 'widget_title', $instance['title'] );
         $type = $instance['type'];
         $selected_post 	= $instance['selected_post'];
         ?>
@@ -18,14 +19,22 @@ class widget_post_block extends WP_Widget {
 		$instance = $old_instance;
 		$instance['selected_post'] = strip_tags($new_instance['selected_post']);
 		$instance['type'] = strip_tags($new_instance['type']);
+        $instance['title'] = get_the_title(strip_tags($new_instance['selected_post']));
         return $instance;
     }
  
     function form($instance) {	
-        $posts = new WP_Query(array('post_type' => 'post', 'posts_per_page' => -1));
+        if ( isset( $instance[ 'title' ] ) ) {
+            $title = $instance[ 'title' ];
+        }
+        else {
+            $title = __( 'New title', 'ungrynerd' );
+        }
+        $posts = new WP_Query(array('post_type' => array('post','article'), 'posts_per_page' => -1));
         $type = esc_attr($instance['type']);
         $selected_post = esc_attr($instance['selected_post']);
         ?>
+            <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="hidden" value="<?php echo esc_attr( $title ); ?>" />
         <p>
             <label for="<?php echo $this->get_field_id('type'); ?>"><?php _e('Tipo', 'ungrynerd'); ?></label> 
             <select id="<?php echo $this->get_field_id('type'); ?>" class="widefat" name="<?php echo $this->get_field_name('type'); ?>">
