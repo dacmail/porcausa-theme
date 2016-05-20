@@ -30,7 +30,7 @@ class widget_post_block extends WP_Widget {
         else {
             $title = __( 'New title', 'ungrynerd' );
         }
-        $posts = new WP_Query(array('post_type' => array('post','article'), 'posts_per_page' => -1));
+        $posts = new WP_Query(array('post_type' => array('post','article'), 'posts_per_page' => -1, 'post_status' => 'publish'));
         $type = esc_attr($instance['type']);
         $selected_post = esc_attr($instance['selected_post']);
         ?>
