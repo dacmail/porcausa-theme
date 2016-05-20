@@ -3,7 +3,11 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<header class="project-head">
-				<?php the_archive_title( '<h1 class="term-title">', '</h1>' ); ?>
+				<?php if (is_home()): ?>
+					<h1 class="term-title">porCausa Blog</h1>
+				<?php else: ?>
+					<?php the_archive_title( '<h1 class="term-title">', '</h1>' ); ?>
+				<?php endif ?>
 			</header>
 			
 		</div>
