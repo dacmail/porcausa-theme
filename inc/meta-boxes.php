@@ -41,6 +41,11 @@ $meta_boxes[] = array(
 	                'id' => $prefix . 'summary',
 	                'type' => 'wysiwyg',
 	            ),
+            array(
+	                'name' =>  __('No mostrar imagen destacada en página de artículo'),
+	                'id' => $prefix . 'hide_thumb',
+	                'type' => 'checkbox',
+	            ),
         ),
     );
 	$meta_boxes[] = array(

@@ -1,7 +1,7 @@
 <div class="container">
 <?php while (have_posts()) : the_post(); ?>
 	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-		<?php if (has_post_thumbnail()): ?>
+		<?php if (has_post_thumbnail() && (!get_post_meta(get_the_ID(), '_ungrynerd_hide_thumb', true)) ): ?>
 			<div class="featured-photo">
 				<?php the_post_thumbnail('col-md-12'); ?>
 				<?php $thumbnail = get_post(get_post_thumbnail_id());?>
