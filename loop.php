@@ -12,7 +12,10 @@
 			</div>
 		<?php endif ?>
 		<div class="article-wrapper">
-			<h3 class="post-pretitle"><?php the_terms(get_the_ID(),'epigraph'); ?></h3>
+			<?php if (has_term('', 'epigraph')): ?>
+				<h3 class="post-pretitle"><?php the_terms(get_the_ID(),'epigraph'); ?></h3>
+			<?php endif ?>
+			
 			<h1 class="post-title">
 				<?php the_title(); ?>
 			</h1>
