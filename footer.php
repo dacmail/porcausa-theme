@@ -10,9 +10,15 @@
 				<div class="col-md-6"><a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>" /></a></div>
 				<div class="col-md-6 text-right">
 					<a href="#" class="icon cc" target="_blank"><i class="fa fa-creative-commons"></i></a>
-					<a href="#" class="icon fb" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="icon tw" target="_blank"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="icon yt" target="_blank"><i class="fa fa-youtube-play"></i></a>
+					<a href="https://www.facebook.com/porcausaorg" class="icon fb" target="_blank"><i class="fa fa-facebook"></i></a>
+					<a href="https://www.flickr.com/photos/140027404@N02/" class="icon fl" target="_blank"><i class="fa fa-flickr"></i></a>
+					<a href="https://www.pinterest.com/porcausa/" class="icon pi" target="_blank"><i class="fa fa-pinterest"></i></a>
+					<a href="https://www.instagram.com/porcausa_org/" class="icon ig" target="_blank"><i class="fa fa-instagram"></i></a>
+					<a href="https://vimeo.com/porcausa" class="icon vi" target="_blank"><i class="fa fa-vimeo"></i></a>
+					<a href="https://twitter.com/porCausaorg" class="icon tw" target="_blank"><i class="fa fa-twitter"></i></a>
+
+					<a href="https://storify.com/porCausaorg" class="icon st" target="_blank"><i class="fa fa-storify"></i></a>
+					<a href="https://www.youtube.com/channel/UCO9I81-eFep1weqs2JZ9aGg" class="icon yt" target="_blank"><i class="fa fa-youtube-play"></i></a>
 					<a href="#" class="icon in" target="_blank"><i class="fa fa-linkedin"></i></a>
 				</div>
 			</div>

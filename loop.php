@@ -1,4 +1,13 @@
 <div class="container">
+<?php if (get_post_type()=='post'): ?>
+	<div class="row">
+		<div class="col-sm-12">
+			<header class="project-head">
+				<h1 class="term-title">porCausa Blog</h1>
+			</header>
+		</div>
+	</div>
+<?php endif ?>
 <?php while (have_posts()) : the_post(); ?>
 	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 		<?php if (has_post_thumbnail() && (!get_post_meta(get_the_ID(), '_ungrynerd_hide_thumb', true)) ): ?>
