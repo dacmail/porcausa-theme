@@ -150,14 +150,14 @@
 		add_filter( 'style_loader_tag', 'enqueue_less_styles', 5, 2);
 	}
 
-	function ungrynerd_post_classes($classes) {
+	function ungrynerd_post_classes($classes, $class, $post_id) {
 		if(current_theme_supports('post-thumbnails'))
-			if(!has_post_thumbnail())
+			if(!has_post_thumbnail() || get_post_meta($post_id, '_ungrynerd_hide_thumb_cover', true))
 				$classes[] = "no-post-thumbnail";
 		
 		return $classes;
 	}	
-	add_filter('post_class', "ungrynerd_post_classes");
+	add_filter('post_class', "ungrynerd_post_classes", 10, 3);
 
 	function ungrynerd_add_custom_types( $query ) {
 		if(!is_admin() && !is_tax() && is_archive() && empty($query->query_vars['suppress_filters'])) {

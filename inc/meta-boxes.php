@@ -46,6 +46,11 @@ $meta_boxes[] = array(
 	                'id' => $prefix . 'hide_thumb',
 	                'type' => 'checkbox',
 	            ),
+            array(
+	                'name' =>  __('No mostrar imagen destacada en portadas'),
+	                'id' => $prefix . 'hide_thumb_cover',
+	                'type' => 'checkbox',
+	            ),
         ),
     );
 	$meta_boxes[] = array(

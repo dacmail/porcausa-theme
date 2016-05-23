@@ -2,7 +2,9 @@
 	<div class="col-md-6 home-block-wrap">
 		<article <?php post_class('home-block') ?>>
 			<header class="post-header">
-				<?php the_post_thumbnail($type); ?>
+				<?php if (!get_post_meta(get_the_ID(), '_ungrynerd_hide_thumb_cover', true)): ?>
+					<?php the_post_thumbnail($type); ?>
+				<?php endif; ?>
 				<h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 			</header>
 			<div class="post-author">Por <?php the_author_posts_link() ?> <strong>/ <?php the_time(get_option('date_format')); ?></strong></div>
