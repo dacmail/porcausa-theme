@@ -63,10 +63,7 @@ class widget_post_block extends WP_Widget {
     }
 }
 add_action('widgets_init', create_function('', 'return register_widget("widget_post_block");'));
-?>
 
-
-<?php
 class ungrynerd_widget_attachment extends WP_Widget {
  
     function ungrynerd_widget_attachment() {

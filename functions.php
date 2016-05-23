@@ -1,9 +1,6 @@
 <?php 
-ini_set('max_execution_time', 300);
 	//Meta Boxes
-	define( 'RWMB_URL', trailingslashit( get_stylesheet_directory_uri() . '/meta-box' ) );
-	define( 'RWMB_DIR', trailingslashit( get_stylesheet_directory() . '/meta-box' ) );
-	require_once RWMB_DIR . 'meta-box.php';
+	require_once get_template_directory() .  '/meta-box/meta-box.php';
 	include get_template_directory() . '/inc/meta-boxes.php';
 	include get_template_directory() . '/inc/actions.php';
 	include get_template_directory() . '/inc/config.php';
