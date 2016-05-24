@@ -7,7 +7,7 @@
 </head>
 <body <?php body_class(); ?>>
 	<?php if (is_front_page()): ?>
-		<?php $featured = new WP_Query(array('meta_key' => '_ungrynerd_featured', 'meta_value' => 1, 'post_type'=>'post', 'posts_per_page' => 1)); ?>
+		<?php $featured = new WP_Query(array('meta_key' => '_ungrynerd_featured', 'meta_value' => 1, 'post_type'=>array('post', 'article'), 'posts_per_page' => 1)); ?>
 	<?php endif ?>
 	
 	<header class="navbar header <?php echo (isset($featured) && $featured->have_posts()) ? 'over' : ''; ?>" id="header">
