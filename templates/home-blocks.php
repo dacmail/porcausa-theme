@@ -14,11 +14,12 @@
 				<div class="post-content">
 					<?php the_excerpt(); ?>
 				</div>
-				<?php if (get_post_meta(get_the_ID(), '_ungrynerd_links', true)): ?>
+				<?php if (get_post_meta(get_the_ID(), '_ungrynerd_links', true)): $i=1; ?>
 					<ul class="post-links clearfix">
 					<?php foreach (get_post_meta(get_the_ID(), '_ungrynerd_links', true) as $link) : ?>
 						<li><a href="<?php echo esc_url($link[1]) ?>"><?php echo $link[0] ?></a></li>
-					<?php endforeach; ?>
+					<?php if ($i==3): break; endif; ?>
+					<?php $i++; endforeach; ?>
 					</ul>
 				<?php endif ?>
 				
