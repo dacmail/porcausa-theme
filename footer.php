@@ -17,7 +17,7 @@
 					<a href="https://vimeo.com/porcausa" class="icon vi" target="_blank"><i class="fa fa-vimeo"></i></a>
 					<a href="https://twitter.com/porCausaorg" class="icon tw" target="_blank"><i class="fa fa-twitter"></i></a>
 
-					<a href="https://storify.com/porCausaorg" class="icon st" target="_blank"><i class="fa fa-storify"></i></a>
+					<a href="https://storify.com/porCausaorg" class="icon st" target="_blank"><i class="icon-ico_storify"></i></a>
 					<a href="https://www.youtube.com/channel/UCO9I81-eFep1weqs2JZ9aGg" class="icon yt" target="_blank"><i class="fa fa-youtube-play"></i></a>
 					<a href="#" class="icon in" target="_blank"><i class="fa fa-linkedin"></i></a>
 				</div>

@@ -13,6 +13,7 @@
 				</div>
 
 				<div class="post-content clearfix">
+					<?php the_content(); ?>
 					<form id="donateForm">
 						<div class="step step-1">
 							<fieldset class="oculto">
