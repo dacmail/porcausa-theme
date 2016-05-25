@@ -51,7 +51,7 @@ img {
 	font-size:25px;
 	font-weight: bold;
 	color:@text-color-dark;
-	margin:30px 0px 40px 0px;
+	margin:40px 0px 40px 0px;
 	padding-left: 30px;
 	line-height: 25px;
 	position: relative;
@@ -116,12 +116,18 @@ img {
 				display: none;
 			}
 		}
+		&:after {
+			display: none;
+		}
 	}
 	&.fixed, &.fixed.over {
 		position: fixed;
 		margin-bottom: 0px;
 		top:0px;
 		background:#fff;
+		&:after {
+			display: none;
+		}
 		.admin-bar & {
 			top: 32px;
 		}
@@ -138,6 +144,22 @@ img {
 		z-index: 9999;
 		width: 100%;
 		background: transparent;
+		&:after {
+			position: absolute;
+			height: 300px;
+			width: 100%;
+			z-index: -1;
+			background: rgba(0,0,0,1);
+			background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,0)));
+			background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+			background: -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+			background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+			background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+			top:-5px;
+			left: 0px;
+		}
 		.navbar-nav {
 			.menu-item {
 				a {
@@ -194,11 +216,11 @@ img {
 				position: absolute;
 				background:#fff;
 				margin:0px;
-				padding: 0px;
+				padding: 20px 0px;
 				width: 300px;
 				.menu-item {
 					a {
-						padding:5px 15px;
+						padding:4px 15px;
 						display: block;
 					}
 				}
@@ -224,23 +246,23 @@ img {
     top: 250px;
     background-color: #EC266A;
     color: #fff;
-    z-index: 999;
+    z-index: 9999;
     font-size: 30px;
     transform: rotate(-90deg);
     line-height: 30px;
-    padding:5px 10px;
+    padding:10px 13px;
     width: 150px;
     left: -55px;
 	span {
 		font-weight: bold;
 		position: relative;
-		top:-2px;
+		top:1px;
 	}
 	i {
 		transform: rotate(90deg);
 		display: inline-block;
 		position: relative;
-		top:1px;
+		top:4px;
 	}
 	&:hover {
 		opacity: 0.9g;
@@ -348,6 +370,9 @@ img {
 			}
 			a {
 				color:@main-color;
+				&:hover {
+					color:@text-color-dark;
+				}
 			}
 		}
 	}
@@ -495,6 +520,9 @@ img {
 					color:@main-color;
 					display: block;
 					margin-bottom: 2px;
+					&:hover {
+						color:@text-color-dark;
+					}
 				}
 				li {
 					margin-bottom: 15px;
@@ -563,6 +591,9 @@ img {
 				padding:0px 10px 0px 5px;
 				a {
 					color:@main-color;
+					&:hover {
+						color:@text-color-dark;
+					}
 				}
 			}
 			.post-intro {
@@ -685,6 +716,8 @@ img {
 					font-family: @main-font;
 					line-height: 1.2;
 					position: relative;
+					margin-top:20px;
+					margin-bottom: 20px;
 					&:before {
 						content: "\f10d";
 						display: inline-block;
@@ -1089,6 +1122,7 @@ td:first-child { background:rgba(200,200,200,.15); text-align:left; }
 .tab-wrapper {
 	background-color:#fff;
 	text-align: center;
+	min-height: 310px;
 	.title {
 		font-family: @text-font;
 		font-size: 25px;

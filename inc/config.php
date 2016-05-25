@@ -45,7 +45,7 @@
 
 	// Content width
 	function ungrynerd_content_width() {
-		$GLOBALS['content_width'] = apply_filters('ungrynerd_content_width', 640);
+		$GLOBALS['content_width'] = apply_filters('ungrynerd_content_width', 1000);
 	}
 	add_action('after_setup_theme', 'ungrynerd_content_width', 0);
 

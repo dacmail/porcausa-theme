@@ -236,4 +236,10 @@
 	}
 
 	add_shortcode('people', 'ungrynerd_people');	
+
+	function ungrynerd_embed_html( $html ) {
+	    return '<div class="video-container">' . $html . '</div>';
+	}
+	 
+	add_filter( 'embed_oembed_html', 'ungrynerd_embed_html', 10, 3 );
 	
