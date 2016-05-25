@@ -11,7 +11,8 @@
 									'post_type' => array('article'),
 									'posts_per_page' => -1)); ?>
 <?php if ($featured->have_posts() ) : while ($featured->have_posts() ) : $featured->the_post(); ?>
-	<div class="<?php echo get_post_meta(get_the_ID(), '_ungrynerd_post_columns', true); ?> home-block-wrap">
+	<?php $type = get_post_meta(get_the_ID(), '_ungrynerd_post_columns', true); ?>
+	<div class="<?php echo $type ?> home-block-wrap">
 		<article <?php post_class('home-block') ?>>
 			<header class="post-header">
 				<?php if (!get_post_meta(get_the_ID(), '_ungrynerd_hide_thumb_cover', true)): ?>
@@ -23,7 +24,8 @@
 			<div class="post-content">
 				<?php the_excerpt(); ?>
 			</div>
-			<?php if (get_post_meta(get_the_ID(), '_ungrynerd_links', true)): $i=1; ?>
+			<?php if ($type=='col-md-12'): $i=1; elseif ($type=='col-md-8') : $i=2; else : $i=3; endif; ?>
+			<?php if (get_post_meta(get_the_ID(), '_ungrynerd_links', true)): ?>
 				<ul class="post-links clearfix">
 				<?php foreach (get_post_meta(get_the_ID(), '_ungrynerd_links', true) as $link) : ?>
 					<li><a href="<?php echo esc_url($link[1]) ?>"><?php echo $link[0] ?></a></li>

@@ -14,7 +14,8 @@
 				<div class="post-content">
 					<?php the_excerpt(); ?>
 				</div>
-				<?php if (get_post_meta(get_the_ID(), '_ungrynerd_links', true)): $i=1; ?>
+				<?php if ($type=='col-md-12'): $i=1; elseif ($type=='col-md-8') : $i=2; else : $i=3; endif; ?>
+				<?php if (get_post_meta(get_the_ID(), '_ungrynerd_links', true)): ?>
 					<ul class="post-links clearfix">
 					<?php foreach (get_post_meta(get_the_ID(), '_ungrynerd_links', true) as $link) : ?>
 						<li><a href="<?php echo esc_url($link[1]) ?>"><?php echo $link[0] ?></a></li>
