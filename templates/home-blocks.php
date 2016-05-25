@@ -1,5 +1,5 @@
 <?php
-	$post_block = new WP_Query(array('p' => $selected_post));	
+	$post_block = new WP_Query(array('p' => $selected_post, 'post_type' => array('post', 'article')));	
 ?>
 	<?php if ( $post_block->have_posts() ) : while ( $post_block->have_posts() ) : $post_block->the_post(); ?>
 		<div class="<?php echo $type; ?> home-block-wrap">
