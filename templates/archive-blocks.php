@@ -1,4 +1,9 @@
-<?php if (have_posts() ) : while (have_posts() ) : the_post(); ?>
+<?php 
+global $wp_query;
+$args = array_merge($wp_query->query, array('post_type' => array('post', 'article')));
+$posts = new WP_Query($args); 
+?>
+<?php if ($posts->have_posts() ) : while ($posts->have_posts() ) : $posts->the_post(); ?>
 	<div class="col-md-6 home-block-wrap">
 		<article <?php post_class('home-block') ?>>
 			<header class="post-header">
