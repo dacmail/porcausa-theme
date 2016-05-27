@@ -5,8 +5,10 @@
 			<header class="project-head">
 				<?php if (is_home()): ?>
 					<h1 class="term-title">porCausa Blog</h1>
+				<?php elseif (is_search()): ?>
+					<h1 class="term-title">Busqueda: <?php the_search_query(); ?></h1>
 				<?php else: ?>
-					<?php the_archive_title( '<h1 class="term-title">', '</h1>' ); ?>
+					<?php g( '<h1 class="term-title">', '</h1>' ); ?>
 				<?php endif ?>
 			</header>
 			
