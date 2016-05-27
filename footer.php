@@ -38,7 +38,7 @@
 	<div class="donate-box">
 		<i class="fa fa-heart"></i>
 		ayudanos a crear un buen periodismo
-		<a class="btn btn-block" href="#">Donar</a>
+		<a class="btn btn-block" href="<?php echo get_permalink(3967); ?>">Donar</a>
 		<a class="close-btn" href="#">x</a>
 	</div>
 	<?php wp_footer(); ?>

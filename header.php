@@ -33,7 +33,7 @@
 	<?php if (isset($featured)): ?>
 	<?php while ($featured->have_posts()) : $featured->the_post(); ?>
 		<div class="container-fluid">
-			<a href="#" class="donate-float"><i class="icon-ico_heart"></i> <span>donar</span></a>
+			<a href="<?php echo get_permalink(3967); ?>" class="donate-float"><i class="icon-ico_heart"></i> <span>donar</span></a>
 			<div class="row">
 				<div class="home-block-wrap">
 					<article <?php post_class('home-block full-width') ?>>
