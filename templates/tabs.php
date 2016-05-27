@@ -11,25 +11,7 @@
 			<div role="tabpanel" class="tab-pane active" id="pioneros">
 				<h3 class="title">Pioneros, los primeros en apoyar nuestras causas</h3>
 				<ul class="clearfix team-carousel owl-carousel">
-					<?php if (is_tax('project')): 
-						$args = array(
-							'post_type' => 'person',
-							'posts_per_page'=> -1,
-							'tax_query' => array(
-								'relation' => 'AND',
-								array(
-									'taxonomy' => 'group',
-									'field'    => 'slug',
-									'terms'    => 'pioneros',
-								),
-								array(
-									'taxonomy' => 'project',
-									'field'    => 'term_id',
-									'terms'    => get_queried_object()->term_id,
-								),
-							),
-						);
-					else :
+					<?php 
 						$args = array(
 							'post_type' => 'person',
 							'posts_per_page'=> -1,
@@ -41,7 +23,7 @@
 								)
 							),
 						);
-					endif ?>
+					?>
 					<?php $people = new WP_Query($args); ?>
 					<?php while ( $people->have_posts() ) : $people->the_post(); ?>
 						<li class="team-item">
@@ -54,25 +36,7 @@
 			<div role="tabpanel" class="tab-pane" id="equipo">
 				<h3 class="title">Equipo, los primeros en apoyar nuestras causas</h3>
 				<ul class="clearfix team-carousel owl-carousel">
-					<?php if (is_tax('project')): 
-						$args = array(
-							'post_type' => 'person',
-							'posts_per_page'=> -1,
-							'tax_query' => array(
-								'relation' => 'AND',
-								array(
-									'taxonomy' => 'group',
-									'field'    => 'slug',
-									'terms'    => 'equipo',
-								),
-								array(
-									'taxonomy' => 'project',
-									'field'    => 'term_id',
-									'terms'    => get_queried_object()->term_id,
-								),
-							),
-						);
-					else :
+					<?php 
 						$args = array(
 							'post_type' => 'person',
 							'posts_per_page'=> -1,
@@ -84,7 +48,7 @@
 								)
 							),
 						);
-					endif ?>
+					?>
 					<?php $people = new WP_Query($args); ?>
 					<?php while ( $people->have_posts() ) : $people->the_post(); ?>
 						<li class="team-item">
@@ -97,25 +61,7 @@
 			<div role="tabpanel" class="tab-pane" id="patronato">
 				<h3 class="title">Patronato, los primeros en apoyar nuestras causas</h3>
 				<ul class="clearfix team-carousel owl-carousel">
-					<?php if (is_tax('project')): 
-						$args = array(
-							'post_type' => 'person',
-							'posts_per_page'=> -1,
-							'tax_query' => array(
-								'relation' => 'AND',
-								array(
-									'taxonomy' => 'group',
-									'field'    => 'slug',
-									'terms'    => 'patronato',
-								),
-								array(
-									'taxonomy' => 'project',
-									'field'    => 'term_id',
-									'terms'    => get_queried_object()->term_id,
-								),
-							),
-						);
-					else :
+					<?php
 						$args = array(
 							'post_type' => 'person',
 							'posts_per_page'=> -1,
@@ -127,7 +73,7 @@
 								)
 							),
 						);
-					endif ?>
+					?>
 					<?php $people = new WP_Query($args); ?>
 					<?php while ( $people->have_posts() ) : $people->the_post(); ?>
 						<li class="team-item">
