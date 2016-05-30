@@ -242,4 +242,29 @@
 	}
 	 
 	add_filter( 'embed_oembed_html', 'ungrynerd_embed_html', 10, 3 );
+
+
+
+	function ungrynerd_password_form_text( $text ) {
+		$text = str_replace( 'Este contenido está protegido por contraseña. Para verlo introduce tu contraseña a continuación:', 'Introduce la contraseña para ver esta página:', $text );
+		return $text;
+	}
+	add_filter( 'the_password_form', 'ungrynerd_password_form_text' );
+
+	function ungrynerd_protected_title($title) {
+
+		$title = attribute_escape($title);
+
+		$findthese = array(
+			'#Protegido:#'
+		);
+
+		$replacewith = array(
+			'Confidencial:'
+		);
+
+		$title = preg_replace($findthese, $replacewith, $title);
+		return $title;
+	}
+	add_filter('the_title', 'ungrynerd_protected_title');
 	
