@@ -252,9 +252,7 @@
 	add_filter( 'the_password_form', 'ungrynerd_password_form_text' );
 
 	function ungrynerd_protected_title($title) {
-
 		$title = attribute_escape($title);
-
 		$findthese = array(
 			'#Protegido:#'
 		);
