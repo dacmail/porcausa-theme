@@ -23,63 +23,70 @@
 }
 /*MOBILE*/
 @media (max-width: 767px) {
-	.home-block {
-		.post-header {
-			.post-title {
-				position: relative;
-				font-size: 35px;
-			    word-break: break-word;
-			    width: 100%;
-			    padding: 10px 15px 10px 25px;
-			}
-		}
-		.post-author {
-			padding-left: 25px;
-			padding-right: 10px;
-			font-size: 15px;
-		}
-		.post-content {
-			font-size: 16px;
-			padding-left: 25px;
-			padding-right: 10px;
-		}
-		.post-links {
-			padding-left: 25px;
-			li {
-				font-size: 15px;
-				padding-right: 10px;
-				width: 100%;
-				float: none;
-				.col-md-12 & {
-					width: 100%;
-					float: none;
-				}
-				.col-md-8 & {
-					width: 100%;
-					float: none;
-				}
-			}
-		}
-		&.full-width {
+	.page {
+		.home-block {
 			.post-header {
-				height: auto;
-				.col-md-12, .container {
-					height: auto;
-				}
-				.wp-post-image {
-					position: relative;
-				}
 				.post-title {
 					position: relative;
+					font-size: 35px;
+				    word-break: break-word;
+				    width: 100%;
+				    padding: 10px 15px 10px 25px;
 				}
 			}
+			.post-author {
+				padding-left: 25px;
+				padding-right: 10px;
+				font-size: 15px;
+			}
+			.post-content {
+				font-size: 16px;
+				padding-left: 25px;
+				padding-right: 10px;
+			}
 			.post-links {
+				padding-left: 25px;
 				li {
+					font-size: 15px;
+					padding-right: 10px;
 					width: 100%;
 					float: none;
+					.col-md-12 & {
+						width: 100%;
+						float: none;
+					}
+					.col-md-8 & {
+						width: 100%;
+						float: none;
+					}
+				}
+			}
+			&.full-width {
+				.post-header {
+					height: auto;
+					.col-md-12, .container {
+						height: auto;
+						padding: 0px;
+					}
+					.wp-post-image {
+						position: relative;
+					}
+					.post-title {
+						position: relative;
+						margin: 0px auto 0px auto;
+					}
+				}
+				.post-links {
+					li {
+						width: 100%;
+						float: none;
+					}
 				}
 			}
 		}
+	}
+	.donate-float {
+		display: none;
 	}
 	#tabs li {
 		width: 100%;
@@ -110,19 +117,40 @@
 	}
 	
 	.header {
+		.navbar-brand {
+			width: 200px;
+		}
 		.navbar-toggle {
 			font-size: 23px;
     		padding: 5px;
+    		color:#000;
 		}
 		.navbar-nav {
 			position: relative;
 			transform: none;
 			top:0px;
+			background-color: #000;
 			.menu-item {
 				.sub-menu {
 					position: relative;
 					padding-left: 15px;
 				}
+			}
+		}
+		&.over {
+			.navbar-toggle {
+				color:#fff;
+			}
+		}
+		&.over:after {
+			display: none;
+		}
+		&.fixed {
+			.navbar-toggle {
+				color: #000;
+			}
+			.navbar-nav {
+				background-color: #fff;
 			}
 		}
 	}
@@ -240,5 +268,49 @@
 	}
 	.donate-box {
 		display: none;
+	}
+	.page, .error404 {
+		.hentry {
+			.article-wrapper {
+				.section-title {
+					font-size: 26px;
+				}
+				.post-meta {
+					.post-share {
+						.icon {
+							width: 25%;
+							float: left;
+							text-align: center;
+							&:first-child {
+								border: 0px;
+							}
+						}
+					}
+				}
+				.post-content {
+					.row-people {
+						border:0px;
+						padding: 0px;
+						max-resolution: 0px;
+					}
+					.person {
+						margin-bottom: 30px;
+						border-bottom: 1px solid @main-bg;
+						padding-bottom: 30px;
+						.wp-post-image {
+							display: block;
+							float: none;
+							margin:15px auto;
+						}
+						.person-bio {
+							padding-left: 0px;
+						}
+					}
+				}
+			}
+		}
+	}
+	#donateForm .frecuencia label, #donateForm .cantidad label {
+		width: 50%;
 	}
 }

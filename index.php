@@ -8,7 +8,7 @@
 				<?php elseif (is_search()): ?>
 					<h1 class="term-title">Busqueda: <?php the_search_query(); ?></h1>
 				<?php else: ?>
-					<?php g( '<h1 class="term-title">', '</h1>' ); ?>
+					<?php the_archive_title( '<h1 class="term-title">', '</h1>' ); ?>
 				<?php endif ?>
 			</header>
 			
