@@ -139,7 +139,7 @@
 							<h3><span>Datos bancarios</span></h3>
 							<fieldset id="opcion-pago">
 								<label for="drMethod1"><input type="radio" id="drMethod1" name="drMethod" checked="" value="61" onclick="jQuery('#bankDetailsSpan').hide();"> -	Tarjeta de crédito (Nombre completo + Número + Caducidad + CVV)</label>
-							</fieldset>g
+							</fieldset>
 							<fieldset id="legal">
 								<input type="checkbox" id="chkTermsAndCondition" name="chkTermsAndCondition" title="" required>
 								<label for="chkTermsAndCondition" class="inline"> He leído y acepto <a target="_blank" title="Leer las Condiciones de privacidad y pagos" href="http://porcausa.org/aviso-legal/">las condiciones de pago, política de devoluciones y de privacidad relativas a la protección de datos personales</a> *</label>
