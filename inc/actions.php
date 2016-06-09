@@ -1,28 +1,27 @@
 <?php
 	//Change for activate development mode (using JS and CSS in assets folder)
 	define('WP_DEVELOPMENT_MODE', false);
-
 	//Enqueue scripts and styles
 	function ungrynerd_scripts() {
 		wp_enqueue_style(
-			'ungrynerd-theme-style', 
+			'ungrynerd-theme-style',
 			get_stylesheet_uri());
 
 		//If WP_DEVELOPMENT_MODE is activate use LESS files
 		if (defined('WP_DEVELOPMENT_MODE') && WP_DEVELOPMENT_MODE ) {
 			wp_enqueue_script(
-				'ungrynerd-js', 
-				'//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js', 
-				array('jquery'), 
-				'1.0.0', 
+				'ungrynerd-js',
+				'//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js',
+				array('jquery'),
+				'1.0.0',
 				true);
-			wp_enqueue_style('ungrynerd-main-less', 
+			wp_enqueue_style('ungrynerd-main-less',
 				get_template_directory_uri() . '/assets/styles/main.less');
 		} else {
-			wp_enqueue_style('ungrynerd-main-styles', 
+			wp_enqueue_style('ungrynerd-main-styles',
 				get_template_directory_uri() . '/css/main.css');
 		}
-		
+
 
 		if (!is_admin()) {
 
@@ -37,19 +36,33 @@
 			if (defined('WP_DEVELOPMENT_MODE') && WP_DEVELOPMENT_MODE ) {
 				wp_enqueue_script(
 					'bootstrap',
-					get_template_directory_uri() . '/assets/scripts/bootstrap.js', 
-					array('jquery'), 
-					'1.0.0', 
+					get_template_directory_uri() . '/assets/scripts/bootstrap.js',
+					array('jquery'),
+					'1.0.0',
 					true);
 				wp_enqueue_script(
 					'ungrynerd-main',
-					get_template_directory_uri() . '/assets/scripts/main.js', 
-					array('jquery'), 
-					'1.0.0', 
+					get_template_directory_uri() . '/assets/scripts/main.js',
+					array('jquery'),
+					'1.0.0',
 					true);
 				wp_enqueue_script(
 					'owl-carousel2',
-					get_template_directory_uri() . '/assets/scripts/owl.carousel.min.js', 
+					get_template_directory_uri() . '/assets/scripts/owl.carousel.min.js',
+					array('jquery'),
+					'2.0',
+					true
+				);
+				wp_enqueue_script(
+					'validate',
+					get_template_directory_uri() . '/assets/scripts/jquery.validate.js',
+					array('jquery'),
+					'2.0',
+					true
+				);
+				wp_enqueue_script(
+					'validate-localization',
+					get_template_directory_uri() . '/assets/scripts/messages_es',
 					array('jquery'),
 					'2.0',
 					true
@@ -57,50 +70,50 @@
 			} else {
 				wp_enqueue_script(
 					'ungrynerd-js',
-					get_template_directory_uri() . '/js/main.js', 
-					array('jquery'), 
-					'1.0.0', 
+					get_template_directory_uri() . '/js/main.js',
+					array('jquery'),
+					'1.0.0',
 					true);
 			}
-			wp_enqueue_script('isotope', 
-				'https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js', 
+			wp_enqueue_script('isotope',
+				'https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js',
 				array('jquery'),
 				'2.0.2',
 				true
 			);
 			if (is_page_template('donar-particular.php')) {
 				$frBaseUrl = "https://fundraising.arivanza.com/";
-				wp_enqueue_script('jquery-md5', 
-					$frBaseUrl . 'fundraising/resources/scripts/web-donation/jquery.md5.js', 
+				wp_enqueue_script('jquery-md5',
+					$frBaseUrl . 'fundraising/resources/scripts/web-donation/jquery.md5.js',
 					array('jquery'),
 					false,
 					true
 				);
-				wp_enqueue_script('jquery-dateformat', 
-					$frBaseUrl . 'fundraising/resources/scripts/web-donation/jquery-dateFormat.min.js', 
+				wp_enqueue_script('jquery-dateformat',
+					$frBaseUrl . 'fundraising/resources/scripts/web-donation/jquery-dateFormat.min.js',
 					array('jquery'),
 					false,
 					true
 				);
-				wp_enqueue_script('webfr', 
-					$frBaseUrl . 'fundraising/resources/scripts/web-donation/webfr.js?12122015', 
+				wp_enqueue_script('webfr',
+					$frBaseUrl . 'fundraising/resources/scripts/web-donation/webfr.js?12122015',
 					array('jquery'),
 					false,
 					true
 				);
 				wp_add_inline_script( 'webfr', 'var $ = jQuery = jQuery.noConflict(true);', 'before');
 			}
-			
+
 			wp_enqueue_script(
-				'html5shiv', 
-				'//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', 
-				array(), 
+				'html5shiv',
+				'//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js',
+				array(),
 				'3.7.2');
-			wp_enqueue_script('respond', 
-				'//oss.maxcdn.com/respond/1.4.2/respond.min.js', 
-				array(), 
+			wp_enqueue_script('respond',
+				'//oss.maxcdn.com/respond/1.4.2/respond.min.js',
+				array(),
 				'1.4.2');
-			
+
 			wp_script_add_data('html5shiv', 'conditional', 'lt IE 9');
 			wp_script_add_data('respond', 'conditional', 'lt IE 9');
 		}
@@ -129,7 +142,7 @@
 	add_action('widgets_init', 'remove_recent_comments_style');
 
 
-	
+
 	function enqueue_less_styles($tag, $handle) {
 	    global $wp_styles;
 	    $match_pattern = '/\.less$/U';
@@ -154,9 +167,9 @@
 		if(current_theme_supports('post-thumbnails'))
 			if(!has_post_thumbnail() || get_post_meta($post_id, '_ungrynerd_hide_thumb_cover', true))
 				$classes[] = "no-post-thumbnail";
-		
+
 		return $classes;
-	}	
+	}
 	add_filter('post_class', "ungrynerd_post_classes", 10, 3);
 
 	function ungrynerd_add_custom_types( $query ) {
@@ -177,11 +190,11 @@
 	        'columns' => 2
 	        ), $atts ) );
 	    global $post;
-	    $back=$post; //Backup post data 
+	    $back=$post; //Backup post data
 	    ob_start();
 	    ?>
 	    <div class="row row-people">
-	    <?php 
+	    <?php
 	    	$args = array(
 						'post_type' => 'person',
 						'posts_per_page'=> esc_attr($limit),
@@ -208,7 +221,7 @@
 	    while ($people->have_posts()) : $people->the_post();
 	        $position = get_post_meta($post->ID, '_ungrynerd_position', true );
 	        $bio = get_post_meta($post->ID, '_ungrynerd_bio', true );
-	        $twitter = get_post_meta($post->ID, '_ungrynerd_twitter', true ); 
+	        $twitter = get_post_meta($post->ID, '_ungrynerd_twitter', true );
 	        $class = $columns==2 ? 'col-md-6' : 'col-md-12'; ?>
 			<div class="<?php echo $class; ?>">
 				<div class="person">
@@ -221,8 +234,8 @@
 							<p><a class="person-twitter" href="http://twitter.com/<?php echo $twitter ?>" target="_blank">@<?php echo $twitter; ?></a></p>
 						<?php endif ?>
 					</div>
-					
-					
+
+
 				</div>
 			</div>
 			<?php if (($people->current_post+1)%$columns==0 && $people->found_posts>($people->current_post+1)): ?>
@@ -231,16 +244,16 @@
 	        <?php
 	    endwhile;
 	    $post=$back; //restore post object
-	   	?> </div> <?php 
+	   	?> </div> <?php
 	    return ob_get_clean();
 	}
 
-	add_shortcode('people', 'ungrynerd_people');	
+	add_shortcode('people', 'ungrynerd_people');
 
 	function ungrynerd_embed_html( $html ) {
 	    return '<div class="video-container">' . $html . '</div>';
 	}
-	 
+
 	add_filter( 'embed_oembed_html', 'ungrynerd_embed_html', 10, 3 );
 
 
@@ -265,4 +278,4 @@
 		return $title;
 	}
 	add_filter('the_title', 'ungrynerd_protected_title');
-	
+
