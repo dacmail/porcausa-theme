@@ -1,4 +1,4 @@
-<?php 
+<?php
 	//Theme setup
 	function ungrynerd_setup() {
 		load_theme_textdomain('ungrynerd', get_template_directory() . '/languages');
@@ -45,7 +45,7 @@
 
 	// Content width
 	function ungrynerd_content_width() {
-		$GLOBALS['content_width'] = apply_filters('ungrynerd_content_width', 1000);
+		$GLOBALS['content_width'] = apply_filters('ungrynerd_content_width', 770);
 	}
 	add_action('after_setup_theme', 'ungrynerd_content_width', 0);
 
@@ -77,5 +77,5 @@
 		));
 
 	}
-	add_action('widgets_init', 'ungrynerd_widgets_init');	
+	add_action('widgets_init', 'ungrynerd_widgets_init');
 ?>
