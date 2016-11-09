@@ -138,8 +138,31 @@
 							</fieldset>
 							<h3><span>Datos bancarios</span></h3>
 							<fieldset id="opcion-pago">
-								<label for="drMethod1"><input type="radio" id="drMethod1" name="drMethod" checked="" value="61" onclick="jQuery('#bankDetailsSpan').hide();"> -	Tarjeta de crédito (Nombre completo + Número + Caducidad + CVV)</label>
+								<label for="drMethod1"><input type="radio" id="drMethod1" name="drMethod" checked value="61" onclick="jQuery('#bankDetailsSpan').hide();">	Tarjeta de crédito (Nombre completo + Número + Caducidad + CVV)</label>
+								<label for="drMethod2"><input type="radio" id="drMethod2" name="drMethod" value="1044"  onclick="jQuery('#bankDetailsSpan').show();"> Domiciliación bancaria (IBAN + Entidad + Oficina + DC + Cuenta)</label>
 							</fieldset>
+							<div id="bankDetailsSpan">
+								<fieldset id="datos-bancarios">
+									<div class="row">
+										<div class="col-sm-2">
+											<label for="ibanExt">IBAN <span><input id="iban" name="iban" type="text" value="ES" readonly="readonly" maxlength="2" > <input id="ibanExt" name="ibanExt" type="text" maxlength="2" ></span></label>
+										</div>
+										<div class="col-sm-2">
+											<label for="bankCode">Entidad <input id="bankCode" name="bankCode" type="text" maxlength="4" ></label>
+										</div>
+										<div class="col-sm-2">
+											<label for="branchCode">Oficina <input id="branchCode" name="branchCode" type="text" maxlength="4" ></label>
+										</div>
+										<div class="col-sm-1">
+											<label for="controlDigits">DC <input id="controlDigits" name="controlDigits" type="text" maxlength="2" ></label>
+										</div>
+										<div class="col-sm-5">
+											<label for="accountNumber">Cuenta <input id="accountNumber" name="accountNumber" type="text" maxlength="10" ></label>
+										</div>
+									</div>
+									<p id="ibanLink" title="El código IBAN (Internacional Bank Account Number) sirve para identificar a nivel internacional una cuenta bancaria. Tiene 4 caracteres: código del país (2 dígitos) + código de control (2 dígitos). Ejemplo: ES21 (código de país 'ES' para España) + código de control ('21')">¿Qué es el código IBAN?</p>
+								</fieldset>
+							</div>
 							<fieldset id="legal">
 								<input type="checkbox" id="chkTermsAndCondition" name="chkTermsAndCondition" title="" required>
 								<label for="chkTermsAndCondition" class="inline"> He leído y acepto <a target="_blank" title="Leer las Condiciones de privacidad y pagos" href="http://porcausa.org/aviso-legal/">las condiciones de pago, política de devoluciones y de privacidad relativas a la protección de datos personales</a> *</label>
