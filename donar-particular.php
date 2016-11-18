@@ -70,9 +70,9 @@
 											<label for="txtEmail" class="obligatorio">Email *<input id="txtEmail" name="txtEmail" type="email" value="" maxlength="200"  title="" required></label>
 										</div>
 										<div class="col-sm-5">
-											<label for="drOrganization" class="obligatorio label-select">¿Cómo conociste Fundación porCausa? *
+											<label for="drOrganization" class="label-select">¿Cómo conociste Fundación porCausa?
 											<div class="form-select">
-											<select id="drOrganization" name="drOrganization" title="" required>
+											<select id="drOrganization" name="drOrganization" title="">
 												<option value=""></option>
 											</select></div></label>
 										</div>
@@ -141,7 +141,7 @@
 								<label for="drMethod1"><input type="radio" id="drMethod1" name="drMethod" checked value="61" onclick="jQuery('#bankDetailsSpan').hide();">	Tarjeta de crédito (Nombre completo + Número + Caducidad + CVV)</label>
 								<label for="drMethod2"><input type="radio" id="drMethod2" name="drMethod" value="1044"  onclick="jQuery('#bankDetailsSpan').show();"> Domiciliación bancaria (IBAN + Entidad + Oficina + DC + Cuenta)</label>
 							</fieldset>
-							<div id="bankDetailsSpan">
+							<div id="bankDetailsSpan" style="display: none;">
 								<fieldset id="datos-bancarios">
 									<div class="row">
 										<div class="col-sm-2">
