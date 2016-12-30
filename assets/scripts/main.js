@@ -3,6 +3,7 @@
 	$(document).ready(function() {
 		$('#donateForm .step .btn-next').on('click', function(event) {
 			event.preventDefault();
+			$('#drFrequency0').attr('checked',true);
 			$(this).closest('.step').hide().next('.step').show();
 		});
 
@@ -30,7 +31,7 @@
 			});
 		}
 
-		if ($('.page-template-donar-particular').length>0) {
+		if ($('.page-template-donar-particular').length>0 || $('.page-template-donar-particular-simple').length>0) {
 			fundraising.init({
 				tenantId: "1",
 				merchantId: "porcausa",
@@ -38,7 +39,7 @@
 				postDonationSuccessPage : "https://porcausa.org/gracias",
 			});
 		}
-		
+
 
         $(window).bind("scroll", function(){ //when the user is scrolling...
         	if ($(window).scrollTop() >= 100) { //header hide by scroll
@@ -46,7 +47,7 @@
             } else {
                 $('#header').removeClass('overflow');
             }
-            if ($(window).scrollTop() >= $(window).height()/2) { 
+            if ($(window).scrollTop() >= $(window).height()/2) {
                 $('#header').addClass('fixed');
             } else {
                 $('#header').removeClass('fixed');

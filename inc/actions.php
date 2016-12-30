@@ -25,13 +25,8 @@
 
 		if (!is_admin()) {
 
-			wp_deregister_script('jquery');
-			wp_enqueue_script(
-				'jquery',
-				'/wp-includes/js/jquery/jquery.js',
-				'',
-				'',
-				true);
+			//wp_deregister_script('jquery');
+			wp_enqueue_script('jquery');
 
 			if (defined('WP_DEVELOPMENT_MODE') && WP_DEVELOPMENT_MODE ) {
 				wp_enqueue_script(
@@ -81,7 +76,7 @@
 				'2.0.2',
 				true
 			);
-			if (is_page_template('donar-particular.php')) {
+			if (is_page_template('donar-particular.php') || is_page_template('donar-particular-simple.php')) {
 				$frBaseUrl = "https://fundraising.arivanza.com/";
 				wp_enqueue_script('jquery-md5',
 					$frBaseUrl . 'fundraising/resources/scripts/web-donation/jquery.md5.js',
