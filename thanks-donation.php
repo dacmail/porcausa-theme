@@ -3,7 +3,7 @@
 Template Name: Thank donation
 */
 ?>
-<?
+<?php
 //$frBaseUrl = "http://qa.livesupport-fundraising.arivanza.com/";
 $frBaseUrl = "https://fundraising.arivanza.com/";
 $merchantid = "porcausa";
@@ -72,7 +72,7 @@ if (isset($_POST['ORDER_ID'])) {
     // this is a post card payment method
     ?>
     <div id="container" style="color: #df4078; font-family: 'RobotoSlab-Rg';width: 880px; max-width: 100%;">
-    <?
+    <?php
     $timestamp = $_POST['TIMESTAMP'];
     $result = $_POST['RESULT'];
     $orderid = $_POST['ORDER_ID'];
@@ -104,7 +104,7 @@ if (isset($_POST['ORDER_ID'])) {
         Para continuar el proceso, por favor <a href="http://porcausa.org"><b><u>haz clic aquí</u></b></a>
         <br/><br/>
         <!-- client can change : end -->
-    <?
+    <?php
     } else {
         if ($result == "00") {
             //check if this is auth for recurring payment
@@ -214,7 +214,7 @@ if (isset($_POST['ORDER_ID'])) {
             Para continuar con el proceso, por favor <a href="http://porcausa.org"><b><u>haz clic aquí</u></b></a>
             <br/><br/>
             <!-- client can change : end -->
-        <?
+        <?php
         } else {
             ?>
             <!-- client can change : start -->
@@ -224,7 +224,7 @@ if (isset($_POST['ORDER_ID'])) {
             <br/>
             Bank responded:
             <br/>
-            <?= $message ?>
+            <?php echo $message; ?>
             <br/>
             Por favor, ponte en contacto con nosotros en
             <a href="mailto:apoya@porcausa.org"><b><u>apoya@porcausa.org</u></b></a>
@@ -233,7 +233,7 @@ if (isset($_POST['ORDER_ID'])) {
             <br/><br/>
 
             <!-- client can change : end -->
-        <?
+        <?php
         }
         //post back the payment status for the backend application
         $curlLink = $frBaseUrl . "fundraising/web-donation/confirmPayment?tenantId=1";
@@ -261,7 +261,7 @@ if (isset($_POST['ORDER_ID'])) {
 //        var_dump($resp);
     ?>
         </div>
-    <?
+    <?php
     }
 } else if ($_GET['donorId']) {
     //failsafe : send mail about the transaction
@@ -282,6 +282,23 @@ if (isset($_POST['ORDER_ID'])) {
     <?php endif; ?>
 
     <?php get_footer(); ?>
-<?
+<?php
+} else {?>
+    <?php get_header(); ?>
+    <!--  Bank payment; say direct thanks  -->
+    <div class="container">
+        <?php if( have_posts() ) : the_post(); ?>
+            <br/><br/>
+            <?php the_content(); ?>
+        <?php else: ?>
+            <!-- client can change -->
+            <h3><span>Muchas gracias por tu donación.</span></h3>
+            <br/><br/>
+            <!-- client can change : end -->
+        <?php endif; ?>
+    </div>
+
+    <?php get_footer(); ?>
+<?php
 }
 ?>
