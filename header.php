@@ -9,7 +9,7 @@
 	<?php if (is_front_page()): ?>
 		<?php $featured = new WP_Query(array('meta_key' => '_ungrynerd_featured', 'meta_value' => 1, 'post_type'=>array('post', 'article'), 'posts_per_page' => 1)); ?>
 	<?php endif ?>
-	
+
 	<header class="navbar header <?php echo (isset($featured) && $featured->have_posts()) ? 'over' : ''; ?>" id="header">
 		<div class="container">
 			<div class="navbar-header">
@@ -21,19 +21,19 @@
 				<a href="<?php echo esc_url(home_url('/')); ?>" class="logo navbar-brand fixed"><img src="<?php echo get_template_directory_uri(); ?>/images/logo-mini.png" alt="<?php bloginfo('name'); ?>" /></a>
 			</div>
 			<?php wp_nav_menu(array('container' => 'nav',
-								'container_id' => 'main-menu', 
-								'container_class' => 'collapse width navbar-right navbar-collapse', 
+								'container_id' => 'main-menu',
+								'container_class' => 'collapse width navbar-right navbar-collapse',
 								'menu_class' => 'nav navbar-nav',
 								'theme_location' => 'main',
 								'fallback_cb' => false)); ?>
 
 		</div> <!--- /.container -->
 	</header>
-	
+
 	<?php if (isset($featured)): ?>
 	<?php while ($featured->have_posts()) : $featured->the_post(); ?>
 		<div class="container-fluid">
-			<a href="<?php echo get_permalink(3967); ?>" class="donate-float"><i class="icon-ico_heart"></i> <span>donar</span></a>
+			<a href="https://actua.porcausa.org/haztesocio/datos​" class="donate-float"><i class="icon-ico_heart"></i> <span>donar</span></a>
 			<div class="row">
 				<div class="home-block-wrap">
 					<article <?php post_class('home-block full-width') ?>>
@@ -60,7 +60,7 @@
 									</ul>
 								<?php endif ?>
 							</div>
-						</div>	
+						</div>
 					</article>
 				</div>
 			</div>

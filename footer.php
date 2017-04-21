@@ -1,8 +1,8 @@
 	<footer id="footer" class="footer">
 		<div class="container">
 			<?php wp_nav_menu(array('container' => 'nav',
-								'container_id' => 'foot-menu', 
-								'container_class' => 'foot-nav', 
+								'container_id' => 'foot-menu',
+								'container_class' => 'foot-nav',
 								'menu_class' => 'foot-nav-items',
 								'theme_location' => 'footer',
 								'fallback_cb' => false)); ?>
@@ -38,7 +38,7 @@
 	<div class="donate-box">
 		<i class="fa fa-heart"></i>
 		ayudanos a crear un buen periodismo
-		<a class="btn btn-block" href="<?php echo get_permalink(3967); ?>">Donar</a>
+		<a class="btn btn-block" href="https://actua.porcausa.org/haztesocio/datos​">Donar</a>
 		<a class="close-btn" href="#">x</a>
 	</div>
 	<?php wp_footer(); ?>
@@ -52,6 +52,6 @@
 	  ga('send', 'pageview');
 
 	</script>
-	
+
 </body>
 </html>

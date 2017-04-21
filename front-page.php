@@ -2,6 +2,7 @@
 <section id="home-blocks" class="container">
 	<div class="row home-blocks-container">
 		<?php dynamic_sidebar("home-blocks"); ?>
+    <div class="col-md-4"></div>
 	</div> <!-- /.row -->
 </section>
 <?php get_template_part('templates/tabs'); ?>
