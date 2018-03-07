@@ -38,7 +38,7 @@
 	<div class="donate-box">
 		<i class="fa fa-heart"></i>
 		ayudanos a crear un buen periodismo
-		<a class="btn btn-block" href="https://actua.porcausa.org/haztesocio/datos​">Donar</a>
+		<a class="btn btn-block" href="https://porcausa.org/socios/">Hazte socio</a>
 		<a class="close-btn" href="#">x</a>
 	</div>
 	<?php wp_footer(); ?>
