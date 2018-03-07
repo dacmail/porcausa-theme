@@ -48,7 +48,7 @@
 						<div class="donate-banner">
 							<i class="icon-ico_heart"></i>
 							Ayúdanos a crear buen periodismo
-							<a href="<?php echo get_permalink(3967); ?>">Donar</a>
+							<a href="https://porcausa.org/socios/">Hazte socio</a>
 						</div>
 
 						<?php $links = get_post_meta(get_the_ID(), '_ungrynerd_links', true); ?>
