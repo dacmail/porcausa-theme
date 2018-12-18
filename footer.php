@@ -11,13 +11,8 @@
 				<div class="col-md-6 text-right">
 					<a href="#" class="icon cc" target="_blank"><i class="fa fa-creative-commons"></i></a>
 					<a href="https://www.facebook.com/porcausaorg" class="icon fb" target="_blank"><i class="fa fa-facebook"></i></a>
-					<a href="https://www.flickr.com/photos/140027404@N02/" class="icon fl" target="_blank"><i class="fa fa-flickr"></i></a>
-					<a href="https://www.pinterest.com/porcausa/" class="icon pi" target="_blank"><i class="fa fa-pinterest"></i></a>
 					<a href="https://www.instagram.com/porcausa_org/" class="icon ig" target="_blank"><i class="fa fa-instagram"></i></a>
-					<a href="https://vimeo.com/porcausa" class="icon vi" target="_blank"><i class="fa fa-vimeo"></i></a>
 					<a href="https://twitter.com/porCausaorg" class="icon tw" target="_blank"><i class="fa fa-twitter"></i></a>
-
-					<a href="https://storify.com/porCausaorg" class="icon st" target="_blank"><i class="icon-ico_storify"></i></a>
 					<a href="https://www.youtube.com/channel/UCO9I81-eFep1weqs2JZ9aGg" class="icon yt" target="_blank"><i class="fa fa-youtube-play"></i></a>
 					<a href="#" class="icon in" target="_blank"><i class="fa fa-linkedin"></i></a>
 				</div>
@@ -25,7 +20,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<p>C/ Marqués de la Ensenada 2, 6º, 28004 Madrid (España)</p>
-					<p>porcausa[at]porcausa[dot]org / <a href="#">Aviso legal</a></p>
+					<p>porcausa[at]porcausa[dot]org / <a href="https://porcausa.org/aviso-legal/">Aviso legal</a> y <a href="https://porcausa.org/politica-privacidad-proteccion-datos-personales/">política de privacidad</a></p>
 				</div>
 				<div class="col-md-6 text-right">
 					<p><a href="http://ungrynerd.com" target="_blank">UNGRYNERD</a> &
@@ -38,7 +33,7 @@
 	<div class="donate-box">
 		<i class="fa fa-heart"></i>
 		ayudanos a crear un buen periodismo
-		<a class="btn btn-block" href="https://porcausa.org/socios/">Hazte socio</a>
+		<a class="btn btn-block" href="https://porcausa.org/socios/">dona</a>
 		<a class="close-btn" href="#">x</a>
 	</div>
 	<?php wp_footer(); ?>
